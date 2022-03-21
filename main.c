@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "lexer.h"
 #include "iomanager.h"
+#include "lexer.h"
+#include "dfa.h"
 
 void printArray(char* a, int n) {
     int i = 0;
@@ -19,8 +20,9 @@ int main(int argc, const char *argv[]) {
     else
         input = getInputFromStdin();   
 
-    tokens = tokenize(input);
-    
-    printTokenList(tokens);
+    DFA *machine = dfa_createMachine(); 
+
+    tokens = tokenize(input, machine);
+    tokenList_printList(tokens);
     return 0;
 }
