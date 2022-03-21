@@ -3,7 +3,7 @@
 #include "token.h"
 
 //insert link at the first location
-void insertFirst(TokenNode *list, Token token) {
+void tokenList_insertFirst(TokenNode *list, Token token) {
     //create a link
     TokenNode *link = (TokenNode *) malloc(sizeof(TokenNode ));
 
@@ -18,11 +18,11 @@ void insertFirst(TokenNode *list, Token token) {
 }
 
 //is list empty
-int isEmpty(TokenNode *list) {
+int tokenList_isEmpty(TokenNode *list) {
     return list == NULL;
 }
 
-int length(TokenNode *list) {
+int tokenList_length(TokenNode *list) {
     int length = 0;
     TokenNode *current;
 
@@ -33,7 +33,7 @@ int length(TokenNode *list) {
     return length;
 }
         
-void printTokenList(TokenNode *list) {
+void tokenList_printList(TokenNode *list) {
     TokenNode *ptr = list;
     printf("\n[ ");
     

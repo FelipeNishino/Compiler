@@ -24,6 +24,8 @@ static const char *TOKEN_TYPE_STRING[] = {
 typedef struct token {
     char* token;
     TokenType type;
+    int line;
+    int col;
 } Token;
 
 typedef struct tokenNode {
@@ -31,17 +33,17 @@ typedef struct tokenNode {
     struct tokenNode *next;
 } TokenNode;
 
-void printToken(Token t) { printf("(Token: {%s}, Type: {%s})\n", t.token, TOKEN_TYPE_STRING[t.type]); }
+void printToken(Token t) { printf("(Token: {%s}, Type: {%s}, line/col: {%d:%d})\n", t.token, TOKEN_TYPE_STRING[t.type], t.line, t.col); }
 
 //insert link at the first location
-void insertFirst(TokenNode *list, Token token);
+void tokenList_insertFirst(TokenNode *list, Token token);
 
 // Check if list is empty
-int isEmpty(TokenNode *list);
+int tokenList_isEmpty(TokenNode *list);
 
 // return number of nodes in list
-int length(TokenNode *list);
+int tokenList_length(TokenNode *list);
 
-void printTokenList(TokenNode *list);
+void tokenList_printList(TokenNode *list);
 
 #endif //COMPILER_TOKEN_H
