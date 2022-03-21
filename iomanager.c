@@ -40,14 +40,11 @@ char *getInputFromFile(const char *filename){
 }
 
 char *getInputFromStdin() {
-    int line, charPos, nChars = 0, bufferLimit = 1024;
+    int nChars = 0, bufferLimit = 1024;
     char currentChar;
     char auxStr[2] = {0};
     char *buffer = calloc(STDIN_BUFFER_SIZE, sizeof(char));
-
-    line = 0;
-    charPos = 0;
-
+    
     while (1) {
         currentChar = getchar();
         nChars++;
