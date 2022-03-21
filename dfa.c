@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "dfa.h"
 
@@ -48,7 +49,7 @@ TransitionNode* transition_find(TransitionNode *list, Transition transition) {
 }
 
 //insert link at the first location
-void dfa_insertState(DFA *dfa, State state) {
+DFA *dfa_insertState(DFA *dfa, State state) {
     //create a link
     DFA *link = (DFA*) malloc(sizeof(DFA));
 
@@ -60,6 +61,7 @@ void dfa_insertState(DFA *dfa, State state) {
 
     //point first to new first node
     dfa = link;
+    return dfa;
 }
 
 //is list empty
@@ -105,18 +107,45 @@ int dfa_length(DFA *dfa) {
     return length;
 }
 
+void dfa_printList(DFA *dfa) {
+    DFA *ptr = dfa;
+    printf("\n[ ");
+
+    //start from the beginning
+    while(ptr != NULL) {
+        printf("State; id {%d}, isTerminal {%d}\n", ptr->state.id, ptr->state.isTerminal);
+        ptr = ptr->next;
+    }
+
+    printf(" ]\n");
+}
+
 DFA *dfa_createMachine() {
     int i;
     DFA *dfa = NULL;
     DFA *auxDFA;
+    printf("Creating machine from transitions defined in dfa.h\n");
     for(i = 0; i < N_TRANSITIONS; i++) {
+        printf("Checking if state for transition with src {%d} already exists\n", DEFAULT_TRANSITIONS[i].source);
         auxDFA = dfa_find(dfa, DEFAULT_TRANSITIONS[i].source);
         if(!auxDFA){
-            dfa_insertState(dfa, (State) {
+            printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].source);
+            dfa = dfa_insertState(dfa, (State) {
                 .id = DEFAULT_TRANSITIONS[i].source,
                 .isTerminal = DEFAULT_TRANSITIONS[i].source < 6 && DEFAULT_TRANSITIONS[i].source > 0,
                 // .transitions = NULL}
                 });
+        }
+
+        printf("Checking if state for transition with target {%d} already exists\n", DEFAULT_TRANSITIONS[i].target);
+        auxDFA = dfa_find(dfa, DEFAULT_TRANSITIONS[i].target);
+        if(!auxDFA){
+            printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].target);
+            dfa = dfa_insertState(dfa, (State) {
+                    .id = DEFAULT_TRANSITIONS[i].target,
+                    .isTerminal = DEFAULT_TRANSITIONS[i].target < 6 && DEFAULT_TRANSITIONS[i].target > 0,
+                    // .transitions = NULL}
+            });
         }
     }
     return dfa;

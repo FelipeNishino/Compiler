@@ -32,6 +32,7 @@ static const int N_TRANSITIONS = 25;
 static const Transition DEFAULT_TRANSITIONS[] = {
     {.source = 0, .read = "+-/=", .target = 3},
     {.source = 0, .read = "()", .target = 4},
+    {.source = 0, .read = " ", .target = 3},
     {.source = 0, .read = "l", .target = 6},
     {.source = 0, .read = "*", .target = 9},
     {.source = 0, .read = STR_LETTERS, .target = 11},
@@ -107,11 +108,12 @@ void transition_insert(TransitionNode *list, Transition transition);
 TransitionNode* transition_find(TransitionNode *list, Transition transition);
 int transition_isEmpty(TransitionNode *list);
 int transition_isEqual(Transition t1, Transition t2);
-void dfa_insertState(DFA *dfa, State state);
+DFA *dfa_insertState(DFA *dfa, State state);
 //is list empty
 int dfa_isEmpty(DFA *dfa);
 //find a link with given key
 DFA* dfa_find(DFA *dfa, int id);
 int dfa_length(DFA *dfa);
+void dfa_printList(DFA *dfa);
 DFA *dfa_createMachine();
 #endif //COMPILER_DFA_H

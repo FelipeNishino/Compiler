@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include "token.h"
 
+void printToken(Token t) { printf("(Token: {%s}, Type: {%s}, line/col: {%d:%d})\n", t.token, TOKEN_TYPE_STRING[t.type], t.line, t.col); }
+
 //insert link at the first location
-void tokenList_insertFirst(TokenNode *list, Token token) {
+TokenNode *tokenList_insertFirst(TokenNode *list, Token token) {
     //create a link
     TokenNode *link = (TokenNode *) malloc(sizeof(TokenNode ));
 
@@ -15,6 +17,7 @@ void tokenList_insertFirst(TokenNode *list, Token token) {
 
     //point first to new first node
     list = link;
+    return list;
 }
 
 //is list empty

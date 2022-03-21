@@ -33,10 +33,10 @@ typedef struct tokenNode {
     struct tokenNode *next;
 } TokenNode;
 
-void printToken(Token t) { printf("(Token: {%s}, Type: {%s}, line/col: {%d:%d})\n", t.token, TOKEN_TYPE_STRING[t.type], t.line, t.col); }
+void printToken(Token t);
 
 //insert link at the first location
-void tokenList_insertFirst(TokenNode *list, Token token);
+TokenNode *tokenList_insertFirst(TokenNode *list, Token token);
 
 // Check if list is empty
 int tokenList_isEmpty(TokenNode *list);
