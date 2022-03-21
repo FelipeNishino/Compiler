@@ -1,5 +1,8 @@
 build:
-	gcc main.c -std=c99 -Wall -o main
+	gcc main.c iomanager.c -std=c99 -Wall -o ./bin/main
 
 run: build
-	./main
+	./bin/main
+
+debugI: build
+	./bin/main input.txt
