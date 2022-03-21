@@ -20,7 +20,7 @@ char *getInputFromFile(const char *filename){
         return NULL;
     }
     
-    printf("Opened input file successfully, reading contents...\n");
+    // printf("Opened input file successfully, reading contents...\n");
 
     while (fgets(lineBuffer, 256, fp)) {
         currentBufferSize += strlen(lineBuffer);

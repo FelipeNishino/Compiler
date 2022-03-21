@@ -5,19 +5,20 @@
 #include "dfa.h"
 
 TokenNode* tokenize(char* input, DFA *machine) {
-	int i, j, line = 1, col = 1, inputSize = strlen(input) + 1;
-	char currentChar = 0, auxStr[2] = "0";
+	int i, j, line = 1, col = 1, tokenStart = 0,inputSize = strlen(input) + 1;
+	char currentChar = 0, *auxStr = calloc(2, sizeof(char));
 	Transition currentTransition;
 	TokenNode *tokens = NULL;
-	State currentState;
-    currentState = dfa_find(machine, 0)->state;
+	State currentState, state0;
+    state0 = dfa_find(machine, 0)->state;
+    currentState = state0;
     printf("Got state {%d}, isTerminal {%d}\n", currentState.id, currentState.isTerminal);
 
     printf("Initializing tokenization\n");
 	for (i = 0; i < inputSize; i++) {
 		currentChar = input[i];
 
-        printf("Analyzing char {%c}\n", currentChar);
+        printf("Analyzing char {%c}\n", currentChar);        	
 
 		if (currentChar == 10) {
             printf("Is newline, jumping to next char\n");
@@ -42,13 +43,20 @@ TokenNode* tokenize(char* input, DFA *machine) {
 //                }
 
 				if(currentState.isTerminal) {
-					auxStr[0] = currentChar;
-					tokenList_insertFirst(tokens, (Token) {
+					printf("i {%d}, tokenStart {%d}, newSize {%d}\n", i, tokenStart, (i - tokenStart + 1));
+					auxStr = realloc(auxStr, i - tokenStart + 1);
+					printf("Successfully reallocated auxStr");
+					strncpy(auxStr, input + tokenStart, i - tokenStart);
+					printf("token encontrado {%s}\n", auxStr);
+					tokens = tokenList_insertFirst(tokens, (Token) {
 						.token = auxStr,
 						.type = currentState.id,
 						.line = line,
 						.col = col
 						});
+					currentState = state0;
+					tokenStart = col;
+					col++;
 				}
                 break;
 			}

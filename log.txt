@@ -1,0 +1,1845 @@
+gcc main.c iomanager.c dfa.c token.c lexer.c -std=c99 -Wall -o /home/nishi/Projects/Compiler/bin/main
+./bin/main input.txt
+Opened input file successfully, reading contents...
+Creating machine from transitions defined in dfa.h
+Checking if state for transition with src {0} already exists
+State {0} doesn't exist yet, creating and inserting...
+Checking if state for transition with target {3} already exists
+State {3} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {4} already exists
+State {4} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {3} already exists
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {6} already exists
+State {6} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {9} already exists
+State {9} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {11} already exists
+State {11} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {12} already exists
+State {12} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {0} already exists
+Checking if state for transition with target {13} already exists
+State {13} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {6} already exists
+Checking if state for transition with target {7} already exists
+State {7} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {7} already exists
+Checking if state for transition with target {8} already exists
+State {8} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {8} already exists
+Checking if state for transition with target {3} already exists
+Checking if state for transition with src {9} already exists
+Checking if state for transition with target {3} already exists
+Checking if state for transition with src {9} already exists
+Checking if state for transition with target {10} already exists
+State {10} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {10} already exists
+Checking if state for transition with target {3} already exists
+Checking if state for transition with src {11} already exists
+Checking if state for transition with target {1} already exists
+State {1} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {11} already exists
+Checking if state for transition with target {11} already exists
+Checking if state for transition with src {12} already exists
+Checking if state for transition with target {13} already exists
+Checking if state for transition with src {13} already exists
+Checking if state for transition with target {2} already exists
+State {2} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {13} already exists
+Checking if state for transition with target {12} already exists
+Checking if state for transition with src {13} already exists
+Checking if state for transition with target {13} already exists
+Checking if state for transition with src {13} already exists
+Checking if state for transition with target {14} already exists
+State {14} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {14} already exists
+Checking if state for transition with target {15} already exists
+State {15} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {14} already exists
+Checking if state for transition with target {16} already exists
+State {16} doesn't exist yet, creating and inserting...
+Checking if state for transition with src {15} already exists
+Checking if state for transition with target {16} already exists
+Checking if state for transition with src {16} already exists
+Checking if state for transition with target {2} already exists
+Got state {0}, isTerminal {0}
+Initializing tokenization
+Analyzing char {A}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {0}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {B}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {C}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {A}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {+}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {B}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {D}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {A}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {+}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {E}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Is valid! Retrieving state
+Got state {14}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {C}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {2}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Is valid! Retrieving state
+Got state {16}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {F}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {.}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Is valid! Retrieving state
+Got state {12}, isTerminal {0}
+Analyzing char {5}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {e}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Is valid! Retrieving state
+Got state {14}, isTerminal {0}
+Analyzing char {-}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Is valid! Retrieving state
+Got state {15}, isTerminal {0}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Is valid! Retrieving state
+Got state {16}, isTerminal {0}
+Analyzing char {0}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {G}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {(}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Is valid! Retrieving state
+Got state {4}, isTerminal {1}
+Analyzing char {(}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Is valid! Retrieving state
+Got state {4}, isTerminal {1}
+Analyzing char {6}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {/}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {3}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {)}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Is valid! Retrieving state
+Got state {9}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {F}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char {)}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Is valid! Retrieving state
+Got state {9}, isTerminal {0}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Is valid! Retrieving state
+Got state {10}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {2}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char {G}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {2}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+Analyzing char {=}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {G}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char {1}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Is valid! Retrieving state
+Got state {11}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Is valid! Retrieving state
+Got state {1}, isTerminal {1}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Is valid! Retrieving state
+Got state {9}, isTerminal {0}
+Analyzing char {*}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Is valid! Retrieving state
+Got state {10}, isTerminal {0}
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Is valid! Retrieving state
+Got state {3}, isTerminal {1}
+Analyzing char {0}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {.}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Is valid! Retrieving state
+Got state {12}, isTerminal {0}
+Analyzing char {2}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {5}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {5}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Is valid! Retrieving state
+Got state {13}, isTerminal {0}
+Analyzing char {;}
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Testing transition {18}; src: {13}, chars {.}, target {12}
+Testing transition {19}; src: {13}, chars {0123456789}, target {13}
+Testing transition {20}; src: {13}, chars {eE}, target {14}
+Testing transition {21}; src: {14}, chars {-}, target {15}
+Testing transition {22}; src: {14}, chars {0123456789}, target {16}
+Testing transition {23}; src: {15}, chars {0123456789}, target {16}
+Testing transition {24}; src: {16}, chars { }, target {2}
+Analyzing char {
+}
+Is newline, jumping to next char
+Analyzing char { }
+Searching for valid transition
+Testing transition {0}; src: {0}, chars {+-/=}, target {3}
+Testing transition {1}; src: {0}, chars {()}, target {4}
+Testing transition {2}; src: {0}, chars { }, target {3}
+Testing transition {3}; src: {0}, chars {l}, target {6}
+Testing transition {4}; src: {0}, chars {*}, target {9}
+Testing transition {5}; src: {0}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ}, target {11}
+Testing transition {6}; src: {0}, chars {.}, target {12}
+Testing transition {7}; src: {0}, chars {0123456789}, target {13}
+Testing transition {8}; src: {6}, chars {e}, target {7}
+Testing transition {9}; src: {7}, chars {t}, target {8}
+Testing transition {10}; src: {8}, chars { }, target {3}
+Testing transition {11}; src: {9}, chars { }, target {3}
+Testing transition {12}; src: {9}, chars {*}, target {10}
+Testing transition {13}; src: {10}, chars { }, target {3}
+Testing transition {14}; src: {11}, chars { }, target {1}
+Testing transition {15}; src: {11}, chars {abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ0123456789}, target {11}
+Testing transition {16}; src: {12}, chars {0123456789}, target {13}
+Testing transition {17}; src: {13}, chars { }, target {2}
+Is valid! Retrieving state
+Got state {2}, isTerminal {1}
+
+[ (Token: {}, Type: {operat0r}, line/col: {9:1})
+(Token: {}, Type: {grouper}, line/col: {8:11})
+(Token: {}, Type: {literal}, line/col: {8:8})
+(Token: {}, Type: {grouper}, line/col: {8:5})
+(Token: {}, Type: {grouper}, line/col: {8:4})
+(Token: {}, Type: {operat0r}, line/col: {8:3})
+(Token: {}, Type: {grouper}, line/col: {7:22})
+(Token: {}, Type: {literal}, line/col: {7:19})
+(Token: {}, Type: {grouper}, line/col: {7:16})
+(Token: {}, Type: {operat0r}, line/col: {7:14})
+(Token: {}, Type: {grouper}, line/col: {7:11})
+(Token: {}, Type: {grouper}, line/col: {7:10})
+(Token: {}, Type: {operat0r}, line/col: {7:9})
+(Token: {}, Type: {UNK}, line/col: {7:7})
+(Token: {}, Type: {UNK}, line/col: {7:6})
+(Token: {}, Type: {grouper}, line/col: {7:5})
+(Token: {}, Type: {grouper}, line/col: {7:4})
+(Token: {}, Type: {operat0r}, line/col: {7:3})
+(Token: {}, Type: {grouper}, line/col: {6:4})
+(Token: {}, Type: {grouper}, line/col: {6:3})
+(Token: {}, Type: {operat0r}, line/col: {6:2})
+(Token: {}, Type: {grouper}, line/col: {4:8})
+(Token: {}, Type: {grouper}, line/col: {4:7})
+(Token: {}, Type: {literal}, line/col: {4:6})
+(Token: {}, Type: {grouper}, line/col: {4:4})
+(Token: {}, Type: {grouper}, line/col: {4:3})
+(Token: {}, Type: {literal}, line/col: {4:2})
+(Token: {}, Type: {grouper}, line/col: {3:8})
+(Token: {}, Type: {grouper}, line/col: {3:7})
+(Token: {}, Type: {literal}, line/col: {3:6})
+(Token: {}, Type: {grouper}, line/col: {3:4})
+(Token: {}, Type: {grouper}, line/col: {3:3})
+(Token: {}, Type: {operat0r}, line/col: {3:2})
+(Token: {}, Type: {grouper}, line/col: {2:4})
+(Token: {}, Type: {grouper}, line/col: {2:3})
+(Token: {}, Type: {operat0r}, line/col: {2:2})
+(Token: {}, Type: {grouper}, line/col: {1:4})
+(Token: {}, Type: {grouper}, line/col: {1:3})
+(Token: {}, Type: {literal}, line/col: {1:2})
+ ]
