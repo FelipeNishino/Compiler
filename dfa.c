@@ -124,12 +124,12 @@ DFA *dfa_createMachine() {
     int i;
     DFA *dfa = NULL;
     DFA *auxDFA;
-    printf("Creating machine from transitions defined in dfa.h\n");
+    // printf("Creating machine from transitions defined in dfa.h\n");
     for(i = 0; i < N_TRANSITIONS; i++) {
-        printf("Checking if state for transition with src {%d} already exists\n", DEFAULT_TRANSITIONS[i].source);
+        // printf("Checking if state for transition with src {%d} already exists\n", DEFAULT_TRANSITIONS[i].source);
         auxDFA = dfa_find(dfa, DEFAULT_TRANSITIONS[i].source);
         if(!auxDFA){
-            printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].source);
+            // printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].source);
             dfa = dfa_insertState(dfa, (State) {
                 .id = DEFAULT_TRANSITIONS[i].source,
                 .isTerminal = DEFAULT_TRANSITIONS[i].source < 6 && DEFAULT_TRANSITIONS[i].source > 0,
@@ -137,10 +137,10 @@ DFA *dfa_createMachine() {
                 });
         }
 
-        printf("Checking if state for transition with target {%d} already exists\n", DEFAULT_TRANSITIONS[i].target);
+        // printf("Checking if state for transition with target {%d} already exists\n", DEFAULT_TRANSITIONS[i].target);
         auxDFA = dfa_find(dfa, DEFAULT_TRANSITIONS[i].target);
         if(!auxDFA){
-            printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].target);
+            // printf("State {%d} doesn't exist yet, creating and inserting...\n", DEFAULT_TRANSITIONS[i].target);
             dfa = dfa_insertState(dfa, (State) {
                     .id = DEFAULT_TRANSITIONS[i].target,
                     .isTerminal = DEFAULT_TRANSITIONS[i].target < 6 && DEFAULT_TRANSITIONS[i].target > 0,
