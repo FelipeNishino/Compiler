@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "lexer.h"
+#include "lexer.h"
 #include "iomanager.h"
 
 void printArray(char* a, int n) {
@@ -12,15 +12,15 @@ void printArray(char* a, int n) {
 
 int main(int argc, const char *argv[]) {
     char *input;
+    TokenNode *tokens;
     if (argc > 1) {
         input = getInputFromFile(argv[1]);
     }
     else
         input = getInputFromStdin();   
 
-    // char *input = getInputFromStdin();
+    tokens = tokenize(input);
     
-    printf("Input recebido: /{/%s/}/", input);
-
+    printTokenList(tokens);
     return 0;
 }
