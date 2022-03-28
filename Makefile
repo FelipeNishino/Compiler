@@ -1,10 +1,19 @@
 DIR := ${CURDIR}
 
-build:
-	gcc main.c iomanager.c dfa.c token.c lexer.c -std=c99 -Wall -o ${DIR}/bin/main
+exec = a.out
+sources = $(wildcard src/*.c)
+objects = $(sources:.c=.o)
+flags = -g -Wall -fPIC -std=c99
 
-run: build
-	./bin/main
+$(exec): $(objects)
+	gcc $(objects) $(flags) -o $(exec)
 
-debugI: build
-	./bin/main input.txt
+%.o: %.c include/%.h
+	gcc -c $(flags) $< -o $@
+
+clean:
+	-rm *.out
+	-rm *.o
+	-rm *.a
+	-rm src/*.o
+
