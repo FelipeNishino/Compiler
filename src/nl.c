@@ -1,15 +1,15 @@
 #include "include/nl.h"
 #include "include/iomanager.h"
-#include "include/lexer.h"
+#include "include/parser.h"
 #include <stdlib.h>
 
 void nl_compile(char* src) {
-	Lexer* lexer = init_lexer(src);
-	Token* token = 0;
+	Parser* parser = init_parser(src);
 
-	while ((token = lexer_read_token(lexer))->type != token_EOF)
-		printf("%s\n", token_to_str(token));
-	printf("%s\n", token_to_str(token));
+	if (!parser_parse(parser)) {
+		printf("[Parser.c]: Failed parsing source code\n");
+		exit(1);
+	}
 }
 
 void nl_compile_file(const char* filename) {
