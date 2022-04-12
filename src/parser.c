@@ -12,8 +12,11 @@ Parser* init_parser(char* src) {
 int parser_parse(Parser* parser) {
 	Token* token = 0;
 
-	while ((token = lexer_read_token(parser->lexer))->type != token_EOF)
-		printf("%s\n", token_to_str(token));
+	do {
+		token = lexer_read_token(parser->lexer);
+	}
+	while (token->type != token_EOF);
+	
 	printf("%s\n", token_to_str(token));
 
 	return 1;

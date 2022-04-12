@@ -51,6 +51,7 @@ void lexer_skip_whitespace(Lexer* lexer) {
 }
 
 Token* lexer_tokenize(Lexer* lexer, TokenType type) {
+	printf("Chegou aqui, vai tokenizar %s\n", TOKEN_TYPE_STRING[type]);
 	return lexer_n_tokenize(lexer, 1, type);
 }
 
@@ -60,8 +61,11 @@ Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type) {
 	strncpy(val, &lexer->src[lexer->i], n);
 
 	Token* token = init_token(val, type, lexer->line, lexer->col);
-	for (i = 0; i < n; i++)
-		lexer_next(lexer);
+
+	if (token->type != token_EOF){
+		for (i = 0; i < n; i++)
+			lexer_next(lexer);
+	}
 
 	return token;
 }
