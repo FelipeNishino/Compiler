@@ -1,0 +1,39 @@
+program ::= function
+function ::= signature block
+signature ::= identifier '(' argument* ')' ('->' type)?
+argument ::= identifier type_annotation
+type_annotation ::= ':' type
+block ::=  '{' (statement|control_sequence|return)+ '}'
+control_sequence ::= (std_while|do_while|for|if)
+std_while ::= 'while' condition block
+do_while ::= 'do' block 'while' condition
+if ::= 'if' condition block else?
+else ::= 'else' block
+condition ::= '(' relational_expression ')'
+return ::= 'return' simple_expression
+literal ::= (string|number)
+statement ::= (declaration|assignment)
+declaration ::= declaration_directive identifier type_annotation assignment_expression? 
+declaration_directive ::= ('let'|'var')
+assignment ::= identifier assignment_expression
+assignment_expression ::= '=' simple_expression
+simple_expression ::= (relational_expression|arithmetic_expression)
+relational_expression ::= unary_logical_operator? operand binary_logical_operator unary_logical_operator? operand
+arithmetic_expression ::= grouped_arithmetic_expression|(unary_arithmetic_operator? operand binary_arithmetic_operator unary_arithmetic_operator? operand)
+grouped_arithmetic_expression ::= '(' arithmetic_expression ')'
+operand ::= (literal|identifier)
+
+binary_arithmetic_operator ::= higher_precedence_binary_arithmetic_operator|lesser_precedence_binary_arithmetic_operator
+unary_arithmetic_operator ::= '-'
+unary_logical_operator ::= '!'
+string ::= '"'[a-Z]+'"'
+number ::= (integer|float)
+integer ::= [0-9]+
+float ::= [0-9]* '.' [0-9]* ('e'(lesser_precedence_binary_operator)?[0-9]+)?
+higher_precedence_binary_arithmetic_operator ::= ('/'|'*')
+lesser_precedence_binary_arithmetic_operator ::= ('+'|'-') 
+binary_logical_operator ::= (higher_precedence_binary_logical_operator|lesser_precedence_binary_logical_operator)
+higher_precedence_binary_logical_operator ::= ('&&')
+lesser_precedence_binary_logical_operator ::= ('||'|'<'|'>'|'<='|'>='|'=='|'!=') 
+identifier ::= ([a-Z][a-Z0-9]*)
+type ::= ('Int'|'Float'|'Bool'|'String')
