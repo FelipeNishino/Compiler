@@ -36,5 +36,5 @@ lesser_precedence_binary_arithmetic_operator ::= ('+'|'-')
 binary_logical_operator ::= (higher_precedence_binary_logical_operator|lesser_precedence_binary_logical_operator)
 higher_precedence_binary_logical_operator ::= ('&&')
 lesser_precedence_binary_logical_operator ::= ('||'|'<'|'>'|'<='|'>='|'=='|'!=') 
-identifier ::= [a-Z] ([a-Z]|[0-9])*
+identifier ::= ([a-z]|[A-Z]) ([a-z]|[A-Z]|[0-9])*
 type ::= ('Int'|'Float'|'Bool'|'String')
