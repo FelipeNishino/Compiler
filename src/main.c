@@ -13,9 +13,10 @@ int main(int argc, const char *argv[]) {
     // TokenNode *tokens;
     if (argc > 1)
         nl_compile_file(argv[1]);
-    else
+    else {
         input = getInputFromStdin();
-    nl_compile(input);
+        nl_compile(input);
+    }
     
     return 0;
 }
