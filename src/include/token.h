@@ -16,6 +16,7 @@
         TOKEN(token_op_minus)   \
         TOKEN(token_op_arrow)   \
         TOKEN(token_op_multi)   \
+        TOKEN(token_op_colon)   \
         TOKEN(token_op_pow)   \
         TOKEN(token_op_div)   \
         TOKEN(token_op_NOT)   \
@@ -40,7 +41,10 @@
         TOKEN(token_WHILE)   \
         TOKEN(token_DO)   \
         TOKEN(token_RETURN)   \
-        TOKEN(token_TYPE)   \
+        TOKEN(token_type_INT)   \
+        TOKEN(token_type_FLOAT)   \
+        TOKEN(token_type_BOOL)   \
+        TOKEN(token_type_STRING)   \
         TOKEN(token_UNK)   \
         TOKEN(token_EOF)   \
 
