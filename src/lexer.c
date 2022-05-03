@@ -206,6 +206,7 @@ Token* lexer_read_token(Lexer* lexer) {
 			return lexer_tokenize(lexer, token_op_multi);
 		}
 		case '"': return lexer_read_string_literal(lexer);
+		case ':': return lexer_tokenize(lexer, token_op_colon);
 		case ';': return lexer_tokenize(lexer, token_gp_semicolon);
 		case '(': return lexer_tokenize(lexer, token_gp_op);
 		case ')': return lexer_tokenize(lexer, token_gp_cp);
@@ -214,6 +215,6 @@ Token* lexer_read_token(Lexer* lexer) {
 		case '{': return lexer_tokenize(lexer, token_gp_ocb);
 		case '}': return lexer_tokenize(lexer, token_gp_ccb);
 		case '\0': return lexer_tokenize(lexer, token_EOF);
-		default: printf("[Lexer.c]: unexpecter symbol {%c}, value {%d}\n", lexer->c, lexer->c); exit(1);
+		default: fprintf(stderr, "[Lexer.c]: unexpected symbol {%c}, value {%d}\n", lexer->c, lexer->c); exit(1);
 	}
 }

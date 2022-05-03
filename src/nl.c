@@ -7,7 +7,7 @@ void nl_compile(char* src) {
 	Parser* parser = init_parser(src);
 
 	if (parser_parse(parser)) {
-		printf("[Parser.c]: Failed parsing source code\n");
+		fprintf(stderr, "[Parser.c]: Failed parsing source code\n");
 		exit(1);
 	}
 }
