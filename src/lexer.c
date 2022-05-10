@@ -156,16 +156,16 @@ Token* lexer_read_token(Lexer* lexer) {
 					return lexer_n_tokenize(lexer, reserved_word_n, token_RETURN);
 
 				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Int"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE);
+					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE_INT);
 
 				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Float"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE);
+					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE_FLOAT);
 
 				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "String"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE);
+					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE_STRING);
 
 				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Bool"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE);
+					return lexer_n_tokenize(lexer, reserved_word_n, token_TYPE_BOOL);
 
 				// return lexer_n_tokenize(lexer, reserved_word_n, token_reserved);
 			}
