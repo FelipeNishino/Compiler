@@ -3,6 +3,17 @@
 #include <stdio.h>
 #include <string.h>
 
+Variable* variable_init() {
+    Variable* var = calloc(1, sizeof(Variable));
+    return var;
+}
+
+Variable* variable_init_with_id(const char* id) {
+    Variable* var = calloc(1, sizeof(Variable));
+    var->identifier = id;
+    return var;   
+}
+
 int variable_compare(const void *a, const void *b, void *udata) {
     const Variable *var_a = a;
     const Variable *var_b = b;
