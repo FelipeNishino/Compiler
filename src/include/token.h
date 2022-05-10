@@ -48,7 +48,6 @@
         TOKEN(token_UNK)   \
         TOKEN(token_EOF)   \
 
-
 #define GENERATE_ENUM(ENUM) ENUM,
 #define GENERATE_STRING(STRING) #STRING,
 

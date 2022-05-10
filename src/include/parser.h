@@ -24,7 +24,7 @@ void parser_std_while(Parser* parser);
 void parser_do_while(Parser* parser);
 void parser_for(Parser* parser);
 void parser_if(Parser* parser);
-void parser_else(Parser* parser);
+void parser_else(Parser* parser, int result_if);
 void parser_condition(Parser* parser);
 void parser_return(Parser* parser);
 void parser_literal(Parser* parser);
@@ -54,5 +54,7 @@ void parser_higher_precedence_binary_logical_operator(Parser* parser);
 void parser_lesser_precedence_binary_logical_operator(Parser* parser);
 void parser_identifier(Parser* parser);
 void parser_type(Parser* parser);
+
+void parser_skip_block(Parser* parser);
 
 #endif //COMPILER_PARSER_H

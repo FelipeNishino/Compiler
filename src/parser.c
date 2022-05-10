@@ -6,6 +6,7 @@
 Parser* init_parser(char* src) {
 	Parser* parser = calloc(1, sizeof(Parser));
 	parser->lexer = init_lexer(src);
+    parser->scope = scope_init();
 
 	return parser;
 }
@@ -128,6 +129,13 @@ void parser_control_sequence(Parser* parser, TokenType tokenType) {
 
 void parser_std_while(Parser* parser) {
     // std_while ::= 'while' condition block
+    Token* token = 0;
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_WHILE);
+
+    parser_condition(parser);
+    parser_block(parser);
 }
 
 void parser_do_while(Parser* parser) {
@@ -140,14 +148,43 @@ void parser_for(Parser* parser) {
 
 void parser_if(Parser* parser) {
     // if ::= 'if' condition block else?
+    Token* token = 0;
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_IF);
+
+    result = parser_condition(parser);
+    if (result) parser_block(parser);
+    else parser_skip_block(parser);
+
+    // TODO: implement else detection
 }
 
-void parser_else(Parser* parser) {
+void parser_else(Parser* parser, int result_if) {
     // else ::= 'else' block
+    Token* token = 0;
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_ELSE);
+
+    if (!result) parser_block(parser);
+    else parser_skip_block(parser);    
 }
 
-void parser_condition(Parser* parser) {
+int parser_condition(Parser* parser) {
     // condition ::= '(' relational_expression ')'
+    int condition_result;
+    Token* token = 0;
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_grouper_op);
+
+    condition_result = parser_relational_expression(parser);
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_grouper_cp);
+
+    return condition_result;
 }
 
 void parser_return(Parser* parser) {
@@ -156,7 +193,6 @@ void parser_return(Parser* parser) {
 
 void parser_literal(Parser* parser) {
     // literal ::= (string|number)
-
 }
 
 void parser_statement(Parser* parser) {
@@ -165,17 +201,37 @@ void parser_statement(Parser* parser) {
 
 void parser_declaration(Parser* parser) {
     // declaration ::= declaration_directive identifier type_annotation assignment_expression? 
+    Variable var = variable_init();
+    var.isConstant = parser_declaration_directive(parser);
+    var.identifier = parser_identifier(parser);
+    var.type = parser_type_annotation(parser);
+
+    // TODO: implement assignment_expression
 }
 
-void parser_declaration_directive(Parser* parser) {
+int parser_declaration_directive(Parser* parser) {
     // declaration_directive ::= ('let'|'var')
+    Token* token = 0;
+    token = lexer_read_token(parser->lexer);
+    switch (token.type) {
+        case token_LET: return 1;
+        case token_VAR: return 0;
+        default: fprintf(stderr, "[Parser.c]: unexpected token {%s}, expected {%s}\n", TOKEN_TYPE_STRING[token->type], TOKEN_TYPE_STRING[token_grouper_op]); exit(1);
+    }
 }
 
 void parser_assignment(Parser* parser) {
     // assignment ::= identifier assignment_expression
+    Token* token = 0;
+
+    token = lexer_read_token(parser->lexer);
+    parser_compare_token_type(token->type, token_identifier);
+
+    Variable* var = scope_get_variable_by_id(parser->scope, token->value);
+    var->value = parser_assignment_expression(parser, var->type);
 }
 
-void parser_assignment_expression(Parser* parser) {
+void parser_assignment_expression(Parser* parser, Type expected_type) {
     // assignment_expression ::= '=' simple_expression
 }
 
@@ -252,11 +308,12 @@ void parser_lesser_precedence_binary_logical_operator(Parser* parser) {
     // lesser_precedence_binary_logical_operator ::= ('||'|'<'|'>'|'<='|'>='|'=='|'!=')
 }
 
-void parser_identifier(Parser* parser, Variable* var) {
+char* parser_identifier(Parser* parser) {
     // identifier ::= ([a-z]|[A-Z]) ([a-z]|[A-Z]|[0-9])*
     Token* token = lexer_read_token(parser->lexer);
     parser_compare_token_type(token->type, token_identifier);
-    var->identifier = token.value;
+
+    return token->value;
 }
 
 Type parser_type(Parser* parser) {
@@ -267,6 +324,10 @@ Type parser_type(Parser* parser) {
         case token_type_BOOL: return Bool;
         case token_type_STRING: return String;
     }
+}
+
+void parser_skip_block(Parser* parser) {
+
 }
 
 /*
