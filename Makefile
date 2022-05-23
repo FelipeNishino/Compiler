@@ -17,3 +17,6 @@ clean:
 	-rm *.a
 	-rm src/*.o
 
+run:
+	./a.out input.txt
+
