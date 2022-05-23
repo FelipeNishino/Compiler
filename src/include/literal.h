@@ -5,7 +5,9 @@
 
 typedef struct Literal {
 	void* value;
-	Type type
+	Type type;
 } Literal;
 
-#endif COMPILER_LITERAL_H
+Literal literal_init(void* value, Type type);
+
+#endif //COMPILER_LITERAL_H
