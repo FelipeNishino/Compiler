@@ -1,6 +1,7 @@
 #include "include/hashmap.h"
 #include "include/variable.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 Variable* variable_init() {
@@ -32,14 +33,18 @@ uint64_t variable_hash(const void *item, uint64_t seed0, uint64_t seed1) {
     return hashmap_sip(var->identifier, strlen(var->identifier), seed0, seed1);
 }
 
-void variable_new_scope(Scope *s) {
-	s = hashmap_new(
-        sizeof(struct Variable),
-        0,
-        0,
-        0,
-        variable_hash,
-        variable_compare,
-        NULL,
-        NULL);
+int variable_assert_type(Type t1, Type t2) {
+    return t1 == t2;
 }
+
+// void variable_new_scope(Scope *s) {
+// 	s = hashmap_new(
+//         sizeof(struct Variable),
+//         0,
+//         0,
+//         0,
+//         variable_hash,
+//         variable_compare,
+//         NULL,
+//         NULL);
+// }
