@@ -5,13 +5,12 @@
 #include "variable.h"
 
 typedef struct Scope {
-	struct hashmap varSpace;
-
+	struct hashmap* varSpace;
 } Scope;
 
 Scope* scope_init();
 void scope_set_variable(Scope* scope, Variable var);
-void scope_get_variable(Scope* scope, Variable var);
-void scope_get_variable_by_id(Scope* scope, const char* identifier);
+Variable* scope_get_variable(Scope* scope, Variable var);
+Variable* scope_get_variable_by_id(Scope* scope, const char* identifier);
 
-#endif COMPILER_SCOPE_H
+#endif //COMPILER_SCOPE_H

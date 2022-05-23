@@ -1,4 +1,5 @@
 #include "include/scope.h"
+#include <stdlib.h>
 
 Scope* scope_init() {
 	Scope* scope = calloc(1, sizeof(Scope));
@@ -32,13 +33,13 @@ Scope* scope_init() {
     // return 0;
 
 void scope_set_variable(Scope* scope, Variable var) {
-	hashmap_set(map, &var);
+	hashmap_set(scope->varSpace, &var);
 }
 
 Variable* scope_get_variable(Scope* scope, Variable var) {
-	return (Variable*) hashmap_get(map, var);
+	return (Variable*) hashmap_get(scope->varSpace, &var);
 }
 
 Variable* scope_get_variable_by_id(Scope* scope, const char* identifier) {
-	return (Variable*) hashmap_get(map, &(Variable){ .identifier=identifier });
+	return (Variable*) hashmap_get(scope->varSpace, &(Variable){ .identifier=identifier });
 }
