@@ -84,8 +84,12 @@ static const char* const RESERVED_WORD_STRING[] = {
 */
 #include <stdio.h>
 
-
 static const char* const RESERVED_WORD_STRING[] = {"let", "var", "if", "else", "for", "while", "do", "return", "Int", "Float", "String", "Bool"};
+
+typedef struct {
+    int i;
+    int n;
+} SizePos;
 
 typedef struct token {
     char* value;

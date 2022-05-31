@@ -21,8 +21,7 @@ Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type);
 Token* lexer_read_identifier(Lexer* lexer);
 Token* lexer_read_number_literal(Lexer* lexer);
 Token* lexer_read_string_literal(Lexer* lexer);
-int lexer_is_reserved(Lexer* lexer);
-int lexer_check_reserved(Lexer* lexer, int word_index);
+SizePos* lexer_is_reserved(Lexer* lexer);
 Token* lexer_read_token(Lexer* lexer);
 
 #endif //COMPILER_LEXER_H

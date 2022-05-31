@@ -33,7 +33,9 @@ int parser_parse(Parser* parser) {
 	// }
 	// while (token->type != token_EOF);
 	
-	parser_program(parser);
+	// parser_program(parser);
+
+    parser_block(parser);
 
 	// printf("%s\n", token_to_str(token));
 	// printf("printou todos os simbolos");
@@ -96,6 +98,8 @@ void parser_block(Parser* parser) {
     parser_compare_token_type(token->type, token_gp_ocb);
 
     token = lexer_read_token(parser->lexer);
+    printToken(*token);
+    printf("Chegou aqui!\n");
     switch (token->type) {
         case token_IF:
         case token_FOR:

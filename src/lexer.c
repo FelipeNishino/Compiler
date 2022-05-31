@@ -51,7 +51,6 @@ void lexer_skip_whitespace(Lexer* lexer) {
 }
 
 Token* lexer_tokenize(Lexer* lexer, TokenType type) {
-	printf("Chegou aqui, vai tokenizar %s\n", TOKEN_TYPE_STRING[type]);
 	return lexer_n_tokenize(lexer, 1, type);
 }
 
@@ -106,70 +105,91 @@ Token* lexer_read_string_literal(Lexer* lexer) {
 	return lexer_n_tokenize(lexer, n, token_literal_string);
 }
 
-int lexer_is_reserved(Lexer* lexer) {
-	int i, n = LEN(RESERVED_WORD_STRING);
-	for (i = 0; i < n; i++)
-		if (lexer->c == RESERVED_WORD_STRING[i][0]) return i;
-	return -1;
-}
+// int lexer_is_reserved(Lexer* lexer) {
+// 	int i, n = LEN(RESERVED_WORD_STRING);
+// 	for (i = 0; i < n; i++) {
+// 		printf("Checking if char %c corresponds to %c, result %d\n", lexer->c, RESERVED_WORD_STRING[i][0], lexer->c == RESERVED_WORD_STRING[i][0]);
+// 		if (lexer->c == RESERVED_WORD_STRING[i][0]) return i;
+// 	}
+		
+// 	return -1;
+// }
 
-int lexer_check_reserved(Lexer* lexer, int word_index) {
-	int i, control = 0, n = strlen(RESERVED_WORD_STRING[word_index]);
-	for (i = 1; i <= n; i++) {
-		control &= lexer_peek(lexer, i) == RESERVED_WORD_STRING[word_index][i]; 
+// int lexer_check_reserved(Lexer* lexer, int word_index) {
+// 	int i, control = 0, n = strlen(RESERVED_WORD_STRING[word_index]);
+// 	for (i = 1; i <= n; i++) {
+// 		control &= lexer_peek(lexer, i) == RESERVED_WORD_STRING[word_index][i]; 
+// 	}
+
+// 	return (control && !isalnum(lexer_peek(lexer, n + 1))) ? n : 0;
+// }
+
+SizePos* lexer_is_reserved(Lexer* lexer) {
+	int i, j = 1, s, n = LEN(RESERVED_WORD_STRING);
+	for (i = 0; i < n; i++) {
+		if (lexer->c == RESERVED_WORD_STRING[i][0]) {
+			s = strlen(RESERVED_WORD_STRING[i]);
+
+			for (j = 1; j < s; j++)
+				if (lexer_peek(lexer, j) != RESERVED_WORD_STRING[i][j]) return NULL;
+			
+			return (isalnum(lexer_peek(lexer, j)) ? NULL : ((&SizePos){.i = i, .n = j}));
+		}
 	}
-
-	return (control && !isalnum(lexer_peek(lexer, n + 1))) ? n : 0;
+		
+	return NULL;
 }
 
 Token* lexer_read_token(Lexer* lexer) {
-	int reserved_word_i, reserved_word_n;
+	// int reserved_word_i, reserved_word_n;
+
+	SizePos* rw_info;
 
 	lexer_skip_whitespace(lexer);
 	if (isalpha(lexer->c)) {
-		if ((reserved_word_i = lexer_is_reserved(lexer)) >= 0) {	
+		// if ((reserved_word_i = lexer_is_reserved(lexer)) >= 0) {	
 			// TODO: retornar o token correto de acordo com a palavra reservada
-			if ((reserved_word_n = lexer_check_reserved(lexer, reserved_word_i))) {
+			if ((rw_info = lexer_is_reserved(lexer))) {
 				// if (strcmp(RESERVED_WORD_STRING[reserved_word_i]), "let")
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "let"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_LET);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "let"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_LET);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "var"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_VAR);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "var"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_VAR);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "if"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_IF);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "if"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_IF);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "else"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_ELSE);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "else"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_ELSE);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "for"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_FOR);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "for"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_FOR);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "while"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_WHILE);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "while"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_WHILE);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "do"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_DO);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "do"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_DO);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "return"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_RETURN);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "return"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_RETURN);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Int"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_type_INT);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Int"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_type_INT);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Float"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_type_FLOAT);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Float"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_type_FLOAT);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "String"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_type_STRING);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "String"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_type_STRING);
 
-				if (strcmp(RESERVED_WORD_STRING[reserved_word_i], "Bool"))
-					return lexer_n_tokenize(lexer, reserved_word_n, token_type_BOOL);
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Bool"))
+					return lexer_n_tokenize(lexer, rw_info->n, token_type_BOOL);
 
 				// return lexer_n_tokenize(lexer, reserved_word_n, token_reserved);
 			}
-		}
+		// }
 		return lexer_read_identifier(lexer);
 	}
 
