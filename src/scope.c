@@ -3,7 +3,7 @@
 
 Scope* scope_init() {
 	Scope* scope = calloc(1, sizeof(Scope));
-	scope->varSpace = hashmap_new(
+	scope->var_space = hashmap_new(
         sizeof(struct Variable),
         0,
         0,
@@ -16,6 +16,15 @@ Scope* scope_init() {
 	return scope;
 }
 
+bool scope_iter(const void *item, void *udata) {
+    const Variable *var_item = item;
+    variable_print(*var_item);
+    return 1;
+}
+
+void scope_scan(Scope* scope) {
+    hashmap_scan(scope->var_space, scope_iter, NULL);
+}
 
     //     // 
 
@@ -33,13 +42,13 @@ Scope* scope_init() {
     // return 0;
 
 void scope_set_variable(Scope* scope, Variable var) {
-	hashmap_set(scope->varSpace, &var);
+	hashmap_set(scope->var_space, &var);
 }
 
 Variable* scope_get_variable(Scope* scope, Variable var) {
-	return (Variable*) hashmap_get(scope->varSpace, &var);
+	return (Variable*) hashmap_get(scope->var_space, &var);
 }
 
 Variable* scope_get_variable_by_id(Scope* scope, const char* identifier) {
-	return (Variable*) hashmap_get(scope->varSpace, &(Variable){ .identifier=identifier });
+	return (Variable*) hashmap_get(scope->var_space, &(Variable){ .identifier=identifier });
 }
