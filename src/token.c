@@ -3,10 +3,20 @@
 #include <string.h>
 #include "include/token.h"
 
-void printToken(Token t) { printf("(Token: {%s}, Type: {%s}, line/col: {%d:%d})\n", t.value, TOKEN_TYPE_STRING[t.type], t.line, t.col); }
+void token_print(Token* t) { fprintf(stderr, "<token={%s}, type={%s}, pos={%d:%d}>\n", t->value, TOKEN_STRING[t->type], t->line, t->col); }
+
+SizePos*
+sizepos_init(int i, int n) {
+    SizePos* sp = calloc(1, sizeof(SizePos));
+
+    sp->i = i;
+    sp->n = n;
+
+    return sp;
+}
 
 Token*
-init_token(char* value, TokenType type, unsigned int line, unsigned int col) {
+token_init(char* value, TokenType type, unsigned int line, unsigned int col) {
     Token* token = calloc(1, sizeof(Token));
 
     token->value = value;
@@ -17,8 +27,28 @@ init_token(char* value, TokenType type, unsigned int line, unsigned int col) {
     return token;
 }
 
+int
+token_is_relational_operator(Token* t) {
+    return t->type == token_op_lt || t->type == token_op_lte || t->type == token_op_gt || t->type == token_op_gte || t->type == token_op_eq || t->type == token_op_neq;
+}
+
+int
+token_is_unary_operator(Token* t) {
+    return t->type == token_op_plus || t->type == token_op_minus || t->type == token_op_NOT;
+}
+
+int
+token_is_lesser_precedence_operator(Token* t) {
+    return t->type == token_op_plus || t->type == token_op_minus || t->type == token_op_OR;
+}
+
+int
+token_is_higher_precedence_operator(Token* t) {
+    return t->type == token_op_div || t->type == token_op_mod || t->type == token_op_multi || t->type == token_op_pow || t->type == token_op_AND;
+}
+
 char* token_to_str(Token* t) {
-    const char* type_str = TOKEN_TYPE_STRING[t->type];
+    const char* type_str = TOKEN_STRING[t->type];
     const char* template = "<type={%s}, int_type={%d}, value={%s}>";
 
     char* str = calloc(strlen(type_str) + strlen(template) + 8, sizeof(char));
