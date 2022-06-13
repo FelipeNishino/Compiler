@@ -1,6 +1,8 @@
 #include "include/nl.h"
 #include "include/iomanager.h"
+#include "include/token.h"
 #include "include/parser.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 void nl_compile(char* src) {
@@ -10,10 +12,23 @@ void nl_compile(char* src) {
 		fprintf(stderr, "[Parser.c]: Failed parsing source code\n");
 		exit(1);
 	}
+	free(parser);
+}
+
+void nl_tokenize_file(const char* filename) {
+	char* src = getInputFromFile(filename);
+	Parser* parser = init_parser(src);
+	Token* t = 0;
+	do {
+		t = lexer_read_token(parser->lexer);
+		token_print(t);
+	}
+	while(t->type != token_EOF);
+	free(src);
 }
 
 void nl_compile_file(const char* filename) {
-	char* src = getInputFromFile(filename) ;
+	char* src = getInputFromFile(filename);
 	nl_compile(src);
 	free(src);
 }
