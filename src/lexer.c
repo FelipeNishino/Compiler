@@ -5,15 +5,16 @@
 #include "include/macros.h"
 #include "include/token.h"
 
-Lexer* init_lexer(char* src) {
-	Lexer* lexer = calloc(1, sizeof(Lexer));
+Lexer* lexer_init(char* src) {
+	Lexer* lexer = (Lexer*) malloc(sizeof(Lexer));
 	
 	lexer->src = src;
 	lexer->src_size = strlen(src);
 	lexer->c = lexer->src[0];
 	lexer->i = 0;
-	lexer->line = 1;
-	lexer->col = 1;
+	lexer->t_pos = (text_position*) malloc(sizeof(text_position));
+	lexer->t_pos->line = 1;
+	lexer->t_pos->col = 1;
 
 	return lexer;
 }
@@ -29,18 +30,37 @@ char lexer_peek(Lexer* lexer, int offset) {
 	return lexer->src[offset > 0 ? MAX(lexer->i + offset, 0) : MIN(lexer->i + offset, lexer->src_size)];	
 }
 
+Token* lexer_peek_token(Lexer* lexer) {
+	Token* t = 0;
+	int i, c, line, col;
+	i = lexer->i;
+	c = lexer->c;
+	line = lexer->t_pos->line;
+	col = lexer->t_pos->col;
+
+	t = lexer_read_token(lexer);
+
+	lexer->i = i;
+	lexer->c = c;
+	lexer->t_pos->line = line;
+	lexer->t_pos->col = col;
+
+	return t;
+}
+
 void lexer_skip_whitespace(Lexer* lexer) {
 	int is_whitespace = 1;
-	while (is_whitespace) {
+	while (is_whitespace && lexer->c != 0) {
 		switch (lexer->c) {
 			case 9:
-				lexer->col += 4;
+				lexer->t_pos->col += 4;
+				break;
 			case 10:
-				lexer->line++;
-				lexer->col = 1;
+				lexer->t_pos->line++;
+				lexer->t_pos->col = 1;
 				break;
 			case 32:
-				lexer->col++;
+				lexer->t_pos->col++;
 				break;
 			default:
 				is_whitespace = 0;
@@ -58,8 +78,9 @@ Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type) {
 	int i;
 	char* val = calloc(n + 1, sizeof(char));
 	strncpy(val, &lexer->src[lexer->i], n);
-
-	Token* token = init_token(val, type, lexer->line, lexer->col);
+	
+	lexer->t_pos->col += n;
+	Token* token = token_init(val, type, lexer->t_pos->line, lexer->t_pos->col);
 
 	if (token->type != token_EOF){
 		for (i = 0; i < n; i++)
@@ -67,6 +88,10 @@ Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type) {
 	}
 
 	return token;
+}
+
+void lexer_skip_comment(Lexer* lexer) {
+	while (lexer->c != 10 && lexer->c != 0) lexer_next(lexer);
 }
 
 Token* lexer_read_identifier(Lexer* lexer) {
@@ -82,25 +107,31 @@ Token* lexer_read_identifier(Lexer* lexer) {
 }
 
 Token* lexer_read_number_literal(Lexer* lexer) {
-	int n = 1;
+	int n = 0;
 	char next = lexer_peek(lexer, n);
+	int is_float = 0;
 
 	while (isdigit(next) || next == 'e' || next == '.' || next == '-' || next == '+') {
+		if (!is_float && next == '.') is_float = 1;
+
 		n++;
 		next = lexer_peek(lexer, n);
 	}
 
-	return lexer_n_tokenize(lexer, n, token_literal_number);
+	return lexer_n_tokenize(lexer, n, (is_float ? token_literal_float : token_literal_int));
 }
 
 Token* lexer_read_string_literal(Lexer* lexer) {
 	int n = 1;
 	char next = lexer_peek(lexer, n);
 
-	while (isalpha(next) || next == 32) {
+	// while (isalpha(next) || next == 32 || next == '_' || next == '\"') {
+	while (next != '\"') {
 		n++;
 		next = lexer_peek(lexer, n);
 	}
+
+	n++;
 
 	return lexer_n_tokenize(lexer, n, token_literal_string);
 }
@@ -133,7 +164,7 @@ SizePos* lexer_is_reserved(Lexer* lexer) {
 			for (j = 1; j < s; j++)
 				if (lexer_peek(lexer, j) != RESERVED_WORD_STRING[i][j]) return NULL;
 			
-			return (isalnum(lexer_peek(lexer, j)) ? NULL : ((&SizePos){.i = i, .n = j}));
+			return isalnum(lexer_peek(lexer, j)) ? NULL : sizepos_init(i, j);
 		}
 	}
 		
@@ -151,40 +182,40 @@ Token* lexer_read_token(Lexer* lexer) {
 			// TODO: retornar o token correto de acordo com a palavra reservada
 			if ((rw_info = lexer_is_reserved(lexer))) {
 				// if (strcmp(RESERVED_WORD_STRING[reserved_word_i]), "let")
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "let"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "let") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_LET);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "var"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "var") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_VAR);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "if"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "if") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_IF);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "else"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "else") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_ELSE);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "for"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "for") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_FOR);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "while"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "while") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_WHILE);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "do"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "do") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_DO);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "return"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "return") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_RETURN);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Int"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Int") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_type_INT);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Float"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Float") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_type_FLOAT);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "String"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "String") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_type_STRING);
 
-				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Bool"))
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Bool") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_type_BOOL);
 
 				// return lexer_n_tokenize(lexer, reserved_word_n, token_reserved);
@@ -204,7 +235,13 @@ Token* lexer_read_token(Lexer* lexer) {
 			return lexer_tokenize(lexer, token_op_minus);
 		}
 		case '%': return lexer_tokenize(lexer, token_op_mod); 
-		case '/': return lexer_tokenize(lexer, token_op_div);
+		case '/': {
+			if (lexer_peek(lexer, 1) == '/') {
+				lexer_skip_comment(lexer);
+				return lexer_read_token(lexer);
+			}
+			return lexer_tokenize(lexer, token_op_div);
+		}
 		case '=': {
 			if (lexer_peek(lexer, 1) == '=') return lexer_n_tokenize(lexer, 2, token_op_eq);
 			return lexer_tokenize(lexer, token_op_assignment);
