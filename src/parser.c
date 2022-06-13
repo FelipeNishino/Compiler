@@ -88,6 +88,9 @@ void parser_simple_statement(Parser* parser, int semicolon_override) {
         case token_LET:
             parser_declaration(parser, NULL);
             break;
+        case token_RETURN:
+            parser_return(parser);
+            break;
         default:
             parser_assignment(parser, NULL);
     }
@@ -140,9 +143,6 @@ void parser_statement(Parser* parser, int semicolon_override) {
         case token_WHILE:
         case token_DO:
             parser_control_sequence(parser, parser->current_token->type);
-            break;
-        case token_RETURN:
-            parser_return(parser);
             break;
         default:
             parser_simple_statement(parser, semicolon_override);

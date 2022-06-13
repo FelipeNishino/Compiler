@@ -107,6 +107,7 @@ Token* lexer_read_identifier(Lexer* lexer) {
 }
 
 Token* lexer_read_number_literal(Lexer* lexer) {
+	// ([0-9]*)\.([0-9]*)((e)[\-\+][0-9]+)?
 	int n = 1;
 	char next = lexer_peek(lexer, n);
 	int is_float = 0;

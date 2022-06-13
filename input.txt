@@ -23,6 +23,15 @@ var d : Int = 0;
 var e : Int = 100;
 var f : Int = 50;
 var g : Int;
+var A : Int = 0;
+var B : Int = 11;
+var C : Int = A + B;
+var D : Int = A + 1;
+var E : Int = C * 2;
+var F : Float = .5e-10;
+var G1 : Float = ((6 / 3) * F) ** 12;
+var G2 : Float = G1 ** 0.255;
+
 var controle : Int = 0;
 var bool : Bool = False;
 
