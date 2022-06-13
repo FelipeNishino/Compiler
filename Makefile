@@ -3,7 +3,7 @@ DIR := ${CURDIR}
 exec = a.out
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
-flags = -g -Wall -fPIC -std=c99
+flags = -g -Wall -fPIC -std=c11
 
 $(exec): $(objects)
 	gcc $(objects) $(flags) -o $(exec)
@@ -17,6 +17,9 @@ clean:
 	-rm *.a
 	-rm src/*.o
 
-run:
+run: $(exec)
 	./a.out input.txt
+
+lexer: $(exec)
+	./a.out input.txt -l
 
