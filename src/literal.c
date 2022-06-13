@@ -1,5 +1,6 @@
 #include "include/literal.h"
 #include "include/variable.h"
+// #include "include/type.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -36,9 +37,9 @@ Literal* literal_init_with_string(char* val) {
 	return l;
 }
 
-Literal* literal_init_with_bool(int val) {
+Literal* literal_init_with_bool(Boolean val) {
 	Literal* l = (Literal*) malloc(sizeof(Literal));
-	int *b = (int*)malloc(sizeof(int));
+	Boolean *b = (Boolean*)malloc(sizeof(Boolean));
 	*b = val;
 	l->value = b;
 	l->type = Bool;
@@ -79,7 +80,7 @@ void _literal_print_float(Literal* l) {
 }
 
 void _literal_print_bool(Literal* l) {
-	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", (*(int*)l->value ? "true" : "false"), TYPE_STRING[l->type]);
+	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", BOOLEAN_STRING[*(Boolean*)l->value], TYPE_STRING[l->type]);
 }
 
 void _literal_print_string(Literal* l) {

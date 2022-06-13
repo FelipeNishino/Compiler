@@ -8,6 +8,8 @@
         TOKEN(token_literal_string)   \
         TOKEN(token_literal_float)   \
         TOKEN(token_literal_int)   \
+        TOKEN(token_literal_true)   \
+        TOKEN(token_literal_false)   \
         TOKEN(token_op_lt)   \
         TOKEN(token_op_lte)   \
         TOKEN(token_op_gt)   \
@@ -85,7 +87,7 @@ static const char* const RESERVED_WORD_STRING[] = {
 */
 #include <stdio.h>
 
-static const char* const RESERVED_WORD_STRING[] = {"let", "var", "if", "else", "for", "while", "do", "return", "Int", "Float", "String", "Bool"};
+static const char* const RESERVED_WORD_STRING[] = {"let", "var", "if", "else", "for", "while", "do", "return", "Int", "Float", "String", "Bool", "True", "False"};
 
 typedef struct {
     int i;
@@ -106,6 +108,7 @@ int token_is_relational_operator(Token* t);
 int token_is_unary_operator(Token* t);
 int token_is_lesser_precedence_operator(Token* t);
 int token_is_higher_precedence_operator(Token* t);
+int token_compare(Token* t1, Token* t2);
 char* token_to_str(Token* token);
 
 #endif //COMPILER_TOKEN_H

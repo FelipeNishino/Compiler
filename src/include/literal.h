@@ -12,7 +12,7 @@ Literal* literal_init(Type type);
 Literal* literal_init_with_int(int val);
 Literal* literal_init_with_float(float val);
 Literal* literal_init_with_string(char* val);
-Literal* literal_init_with_bool(int val);
+Literal* literal_init_with_bool(Boolean val);
 Literal* literal_init_from_var(Variable* var);
 void literal_print(Literal* l);
 void _literal_print_int(Literal* l);

@@ -1,4 +1,4 @@
-//{
+{
 //var A : Int = 2;
 //let B : Int = (1 + 2) * 3;
 //var C : Int = A + B;
@@ -14,13 +14,46 @@
 //A = A ** 8;
 //var b : Bool = 2 <= 3;
 //}
-var A : Int = 2;
-var I : Int = 0;
-//while ( A < 2 )
-//	A = A + 1;
-//do A = A + 1;
-//while ( A < 2 );
-for (I = 0; I < 10; I = I + 1)
-	A = A * 2;
+var a : Int = 2;
+var i : Int = 0;
+var b : Int = 0;
+var j : Int = 0;
+var c : Int = 0;
+var d : Int = 0;
+var e : Int = 100;
+var f : Int = 50;
+var g : Int;
+var controle : Int = 0;
+var bool : Bool = False;
 
+for (i = 0; i < 10; i = i + 1) {
+	if (a % 256 == 0) 
+		b = b + 1;
+	else {
+		d = d + 1;
+		e = e - 1;
+	}
+	
+	if ((a > b) && !bool) {
+		f = 25;
+		g = 1;
+	}
 
+	a = a * 2;
+	while (j < 6){
+		c = c + 1 * i * 10;
+		j = j + 1;
+	}
+	j = 0;
+	do {
+		d = d + 1;
+		controle = 1;
+		} while (0);
+	}
+if (1 < 2) {
+controle = 1;
+}
+	else {
+		controle = 5;
+		} 
+}

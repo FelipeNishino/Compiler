@@ -24,14 +24,22 @@ void _variable_print_float(Variable v) {
 }
 
 void _variable_print_bool(Variable v) {
-    fprintf(stderr, "<Id:%s, Constant:%d, Value:%s, Type:%s>\n", v.identifier, v.isConstant, (*(int*)v.value ? "true" : "false"), TYPE_STRING[v.type]);
+    fprintf(stderr, "<Id:%s, Constant:%d, Value:%s, Type:%s>\n", v.identifier, v.isConstant, BOOLEAN_STRING[*(Boolean*)v.value], TYPE_STRING[v.type]);
 }
 
 void _variable_print_string(Variable v) {
     fprintf(stderr, "<Id:%s, Constant:%d, Value:%s, Type:%s>\n", v.identifier, v.isConstant, (char*)v.value, TYPE_STRING[v.type]);
 }
 
+void _variable_print_uninitialized(Variable v) {
+    fprintf(stderr, "<Id:%s, Constant:%d, Value:%s, Type:%s>\n", v.identifier, v.isConstant, (char*)v.value, TYPE_STRING[v.type]);
+}
+
 void variable_print(Variable v) {
+    if (v.value == NULL) {
+        _variable_print_uninitialized(v);
+        return;
+    }
     switch(v.type) {
         case Int: 
             _variable_print_int(v);
@@ -72,14 +80,6 @@ bool variable_iter(const void *item, void *udata) {
 uint64_t variable_hash(const void *item, uint64_t seed0, uint64_t seed1) {
     const Variable *var = item;
     return hashmap_sip(var->identifier, strlen(var->identifier), seed0, seed1);
-}
-
-int variable_compare_type(Type t1, Type t2) {
-    return t1 == t2;
-}
-
-int variable_is_number(Type t) {
-    return variable_compare_type(t, Int) || variable_compare_type(t, Float);
 }
 
 // void variable_new_scope(Scope *s) {

@@ -52,7 +52,7 @@ void lexer_skip_whitespace(Lexer* lexer) {
 	int is_whitespace = 1;
 	while (is_whitespace && lexer->c != 0) {
 		switch (lexer->c) {
-			case 9:
+			case '\t':
 				lexer->t_pos->col += 4;
 				break;
 			case 10:
@@ -79,7 +79,7 @@ Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type) {
 	char* val = calloc(n + 1, sizeof(char));
 	strncpy(val, &lexer->src[lexer->i], n);
 	
-	lexer->t_pos->col += n;
+	// lexer->t_pos->col += n;
 	Token* token = token_init(val, type, lexer->t_pos->line, lexer->t_pos->col);
 
 	if (token->type != token_EOF){
@@ -107,7 +107,7 @@ Token* lexer_read_identifier(Lexer* lexer) {
 }
 
 Token* lexer_read_number_literal(Lexer* lexer) {
-	int n = 0;
+	int n = 1;
 	char next = lexer_peek(lexer, n);
 	int is_float = 0;
 
@@ -136,34 +136,15 @@ Token* lexer_read_string_literal(Lexer* lexer) {
 	return lexer_n_tokenize(lexer, n, token_literal_string);
 }
 
-// int lexer_is_reserved(Lexer* lexer) {
-// 	int i, n = LEN(RESERVED_WORD_STRING);
-// 	for (i = 0; i < n; i++) {
-// 		printf("Checking if char %c corresponds to %c, result %d\n", lexer->c, RESERVED_WORD_STRING[i][0], lexer->c == RESERVED_WORD_STRING[i][0]);
-// 		if (lexer->c == RESERVED_WORD_STRING[i][0]) return i;
-// 	}
-		
-// 	return -1;
-// }
-
-// int lexer_check_reserved(Lexer* lexer, int word_index) {
-// 	int i, control = 0, n = strlen(RESERVED_WORD_STRING[word_index]);
-// 	for (i = 1; i <= n; i++) {
-// 		control &= lexer_peek(lexer, i) == RESERVED_WORD_STRING[word_index][i]; 
-// 	}
-
-// 	return (control && !isalnum(lexer_peek(lexer, n + 1))) ? n : 0;
-// }
-
 SizePos* lexer_is_reserved(Lexer* lexer) {
 	int i, j = 1, s, n = LEN(RESERVED_WORD_STRING);
 	for (i = 0; i < n; i++) {
 		if (lexer->c == RESERVED_WORD_STRING[i][0]) {
 			s = strlen(RESERVED_WORD_STRING[i]);
 
-			for (j = 1; j < s; j++)
-				if (lexer_peek(lexer, j) != RESERVED_WORD_STRING[i][j]) return NULL;
-			
+			j = 1;
+			while (lexer_peek(lexer, j) == RESERVED_WORD_STRING[i][j] && j < s) j++;
+			if (j != s) continue;
 			return isalnum(lexer_peek(lexer, j)) ? NULL : sizepos_init(i, j);
 		}
 	}
@@ -183,6 +164,7 @@ Token* lexer_read_token(Lexer* lexer) {
 			if ((rw_info = lexer_is_reserved(lexer))) {
 				// if (strcmp(RESERVED_WORD_STRING[reserved_word_i]), "let")
 				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "let") == 0)
+					// exit(1);
 					return lexer_n_tokenize(lexer, rw_info->n, token_LET);
 
 				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "var") == 0)
@@ -218,6 +200,12 @@ Token* lexer_read_token(Lexer* lexer) {
 				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "Bool") == 0)
 					return lexer_n_tokenize(lexer, rw_info->n, token_type_BOOL);
 
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "True") == 0)
+					return lexer_n_tokenize(lexer, rw_info->n, token_literal_true);
+
+				if (strcmp(RESERVED_WORD_STRING[rw_info->i], "False") == 0)
+					return lexer_n_tokenize(lexer, rw_info->n, token_literal_false);
+
 				// return lexer_n_tokenize(lexer, reserved_word_n, token_reserved);
 			}
 		// }
@@ -235,11 +223,23 @@ Token* lexer_read_token(Lexer* lexer) {
 			return lexer_tokenize(lexer, token_op_minus);
 		}
 		case '%': return lexer_tokenize(lexer, token_op_mod); 
+		case '&': {
+			if (lexer_peek(lexer, 1) == '&') return lexer_n_tokenize(lexer, 2, token_op_AND);
+			return lexer_tokenize(lexer, token_UNK);
+		}
+		case '|': {
+			if (lexer_peek(lexer, 1) == '|') return lexer_n_tokenize(lexer, 2, token_op_OR);
+			return lexer_tokenize(lexer, token_UNK);
+		}
 		case '/': {
 			if (lexer_peek(lexer, 1) == '/') {
 				lexer_skip_comment(lexer);
 				return lexer_read_token(lexer);
 			}
+			// if (lexer_peek(lexer, 1) == '*') {
+			// 	lexer_skip_comment(lexer);
+			// 	return lexer_read_token(lexer);
+			// }
 			return lexer_tokenize(lexer, token_op_div);
 		}
 		case '=': {

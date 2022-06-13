@@ -47,6 +47,12 @@ token_is_higher_precedence_operator(Token* t) {
     return t->type == token_op_div || t->type == token_op_mod || t->type == token_op_multi || t->type == token_op_pow || t->type == token_op_AND;
 }
 
+int
+token_compare(Token* t1, Token* t2) {
+    return strcmp(t1->value, t2->value) == 0 && t1->type == t2->type && t1->line == t2->line && t1->col == t2->col;
+}
+
+
 char* token_to_str(Token* t) {
     const char* type_str = TOKEN_STRING[t->type];
     const char* template = "<type={%s}, int_type={%d}, value={%s}>";
