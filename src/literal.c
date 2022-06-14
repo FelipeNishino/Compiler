@@ -53,6 +53,50 @@ Literal* literal_init_from_var(Variable* var) {
 	return l;
 }
 
+Literal* literal_cast_to_float(Literal* l) {
+	if (type_compare(l->type, Float)) return l;
+	if (!type_is_number(l->type)) {
+		fprintf(stderr, "Bad cast from %s to Float\n", TYPE_STRING[l->type]);
+		exit(1);
+	}
+	float *f = (float*)malloc(sizeof(float));
+	*f = *(int*)l->value;
+
+	l->value = f;
+	l->type = Float;
+	return l;
+}
+
+Literal* literal_cast_to_int(Literal* l) {
+	if (type_compare(l->type, Int)) return l;
+	if (!type_is_number(l->type)) {
+		fprintf(stderr, "Bad cast from %s to Int\n", TYPE_STRING[l->type]);
+		exit(1);
+	}
+	int *i = (int*)malloc(sizeof(int));
+	*i = *(float*)l->value;
+	l->value = i;
+	l->type = Int;
+	return l;
+}
+
+
+void _literal_print_int(Literal* l) {
+	fprintf(stderr, "<Value: {%d}, Type: {%s}>\n", *(int*)l->value, TYPE_STRING[l->type]);
+}
+
+void _literal_print_float(Literal* l) {
+	fprintf(stderr, "<Value: {%f}, Type: {%s}>\n", *(float*)l->value, TYPE_STRING[l->type]);
+}
+
+void _literal_print_bool(Literal* l) {
+	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", BOOLEAN_STRING[*(Boolean*)l->value], TYPE_STRING[l->type]);
+}
+
+void _literal_print_string(Literal* l) {
+	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", (char*)l->value, TYPE_STRING[l->type]);
+}
+
 void literal_print(Literal* l) {
 	switch(l->type) {
 		case Int: 
@@ -71,18 +115,3 @@ void literal_print(Literal* l) {
 	}
 }
 
-void _literal_print_int(Literal* l) {
-	fprintf(stderr, "<Value: {%d}, Type: {%s}>\n", *(int*)l->value, TYPE_STRING[l->type]);
-}
-
-void _literal_print_float(Literal* l) {
-	fprintf(stderr, "<Value: {%f}, Type: {%s}>\n", *(float*)l->value, TYPE_STRING[l->type]);
-}
-
-void _literal_print_bool(Literal* l) {
-	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", BOOLEAN_STRING[*(Boolean*)l->value], TYPE_STRING[l->type]);
-}
-
-void _literal_print_string(Literal* l) {
-	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", (char*)l->value, TYPE_STRING[l->type]);
-}
