@@ -22,6 +22,7 @@ Lexer* lexer_init(char* src) {
 void lexer_next(Lexer* lexer) {
 	if (lexer->i < lexer->src_size) {
 		lexer->i++;
+		lexer->t_pos->col++;
 		lexer->c = lexer->src[lexer->i];
 	}
 }
@@ -110,11 +111,11 @@ Token* lexer_read_number_literal(Lexer* lexer) {
 	// ([0-9]*)\.([0-9]*)((e)[\-\+][0-9]+)?
 	int n = 1;
 	char next = lexer_peek(lexer, n);
-	int is_float = 0;
+	int is_float = lexer->c == '.';
 
-	while (isdigit(next) || next == 'e' || next == '.' || next == '-' || next == '+') {
+	while (isdigit(next) || next == 'e' || next == '.' || (lexer->src[lexer->i + n-1] == 'e' && (next == '-' || next == '+'))) {
 		if (!is_float && next == '.') is_float = 1;
-
+		// if (!is_exponent && next == 'e') is_exponent = 1;
 		n++;
 		next = lexer_peek(lexer, n);
 	}
