@@ -34,7 +34,66 @@ Este repositório contém um arquivo de exemplo chamado `input.txt`.
 
 ## Operações
 
-*a documentar*
+### Soma (+):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Subtração (-):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Multiplicação (\*):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Potênciação (\*\*):
+
+- Tipos aceitos: Números (Int e Float);
+- Observações: Somente a base pode ser Float, o expoente deve ser um Int;
+
+### Divisão (/):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Modulo (%):
+
+- Tipos aceitos: Int;
+
+### Not (!):
+
+- Tipos aceitos: Bool;
+
+### And (&&):
+
+- Tipos aceitos: Bool;
+
+### Or (||):
+
+- Tipos aceitos: Bool;
+
+### Lt (<):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Lte (<=):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Eq (==)):
+
+- Tipos aceitos: Todos;
+
+### Neq (!=):
+
+- Tipos aceitos: Todos;
+
+### Gt (>):
+
+- Tipos aceitos: Números (Int e Float);
+
+### Gte (>=):
+
+- Tipos aceitos: Números (Int e Float);
 
 ## Gramática
 
