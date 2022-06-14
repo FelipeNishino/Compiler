@@ -3,11 +3,11 @@
 
 #include "parser.h"
 
-void parser_get_token(Parser* parser);
-Parser parser_make_copy(Parser* parser);
-void parser_return_to(Parser* parser, Parser p2);
-void parser_skip_block_or_statement(Parser* parser);
-void parser_skip_to(Parser* parser, TokenType t);
-Token* parser_find_block_end(Parser* parser, int should_return);
+void parser_get_token(parser* p);
+parser parser_make_copy(parser* p);
+void parser_return_to(parser* p, parser p2);
+void parser_skip_block_or_statement(parser* p);
+void parser_skip_to(parser* p, token_type t);
+token* parser_find_block_end(parser* p, int should_return);
 
 #endif //COMPILER_PARSER_UTILS_H

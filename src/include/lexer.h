@@ -14,19 +14,19 @@ typedef struct {
 	char c;
 	unsigned int i;
 	text_position* t_pos;
-} Lexer;
+} lexer;
 
-Lexer* lexer_init(char* src);
-void lexer_next(Lexer* lexer);
-char lexer_peek(Lexer* lexer, int offset);
-Token* lexer_peek_token(Lexer* lexer);
-void lexer_skip_whitespace(Lexer* lexer);
-Token* lexer_tokenize(Lexer* lexer, TokenType type);
-Token* lexer_n_tokenize(Lexer* lexer, int n, TokenType type);
-Token* lexer_read_identifier(Lexer* lexer);
-Token* lexer_read_number_literal(Lexer* lexer);
-Token* lexer_read_string_literal(Lexer* lexer);
-SizePos* lexer_is_reserved(Lexer* lexer);
-Token* lexer_read_token(Lexer* lexer);
+lexer* lexer_init(char* src);
+void lexer_next(lexer* lexer);
+char lexer_peek(lexer* lexer, int offset);
+token* lexer_peek_token(lexer* lexer);
+void lexer_skip_whitespace(lexer* lexer);
+token* lexer_tokenize(lexer* lexer, token_type type);
+token* lexer_n_tokenize(lexer* lexer, int n, token_type type);
+token* lexer_read_identifier(lexer* lexer);
+token* lexer_read_number_literal(lexer* lexer);
+token* lexer_read_string_literal(lexer* lexer);
+size_pos* lexer_is_reserved(lexer* lexer);
+token* lexer_read_token(lexer* lexer);
 
 #endif //COMPILER_LEXER_H

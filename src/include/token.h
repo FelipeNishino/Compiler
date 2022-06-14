@@ -54,9 +54,9 @@
         TOKEN(token_UNK)   \
         TOKEN(token_EOF)   \
 
-typedef enum TokenType {
+typedef enum {
     FOREACH_TOKEN(GENERATE_ENUM)
-} TokenType;
+} token_type;
 
 //https://stackoverflow.com/questions/8312168/static-const-char-defined-but-not-used
 static const char * const TOKEN_STRING[] = {
@@ -92,23 +92,23 @@ static const char* const RESERVED_WORD_STRING[] = {"let", "var", "if", "else", "
 typedef struct {
     int i;
     int n;
-} SizePos;
+} size_pos;
 
-typedef struct token {
+typedef struct {
     char* value;
-    TokenType type;
+    token_type type;
     unsigned int line;
     unsigned int col;
-} Token;
+} token;
 
-void token_print(Token* t);
-SizePos* sizepos_init(int i, int n);
-Token* token_init(char* value, TokenType type, unsigned int line, unsigned int col);
-int token_is_relational_operator(Token* t);
-int token_is_unary_operator(Token* t);
-int token_is_lesser_precedence_operator(Token* t);
-int token_is_higher_precedence_operator(Token* t);
-int token_compare(Token* t1, Token* t2);
-char* token_to_str(Token* token);
+void token_print(token* t);
+size_pos* sizepos_init(int i, int n);
+token* token_init(char* value, token_type type, unsigned int line, unsigned int col);
+int token_is_relational_operator(token* t);
+int token_is_unary_operator(token* t);
+int token_is_lesser_precedence_operator(token* t);
+int token_is_higher_precedence_operator(token* t);
+int token_compare(token* t1, token* t2);
+char* token_to_str(token* token);
 
 #endif //COMPILER_TOKEN_H

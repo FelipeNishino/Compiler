@@ -4,15 +4,15 @@
 #include "hashmap.h"
 #include "variable.h"
 
-typedef struct Scope {
+typedef struct {
 	struct hashmap* var_space;
-} Scope;
+} scope;
 
-Scope* scope_init();
+scope* scope_init();
 bool scope_iter(const void *item, void *udata);
-void scope_scan(Scope* scope);
-void scope_set_variable(Scope* scope, Variable var);
-Variable* scope_get_variable(Scope* scope, Variable var);
-Variable* scope_get_variable_by_id(Scope* scope, const char* identifier);
+void scope_scan(scope* scope);
+void scope_set_variable(scope* scope, variable var);
+variable* scope_get_variable(scope* scope, variable var);
+variable* scope_get_variable_by_id(scope* scope, const char* identifier);
 
 #endif //COMPILER_SCOPE_H

@@ -6,21 +6,21 @@
 #include <stdlib.h>
 
 void nl_compile(char* src) {
-	Parser* parser = init_parser(src);
+	parser* p = init_parser(src);
 
-	if (parser_parse(parser)) {
+	if (parser_parse(p)) {
 		fprintf(stderr, "[Parser.c]: Failed parsing source code\n");
 		exit(1);
 	}
-	free(parser);
+	free(p);
 }
 
 void nl_tokenize_file(const char* filename) {
-	char* src = getInputFromFile(filename);
-	Parser* parser = init_parser(src);
-	Token* t = 0;
+	char* src = iomanager_get_input_from_file(filename);
+	parser* p = init_parser(src);
+	token* t = 0;
 	do {
-		t = lexer_read_token(parser->lexer);
+		t = lexer_read_token(p->lexer);
 		token_print(t);
 	}
 	while(t->type != token_EOF);
@@ -28,7 +28,7 @@ void nl_tokenize_file(const char* filename) {
 }
 
 void nl_compile_file(const char* filename) {
-	char* src = getInputFromFile(filename);
+	char* src = iomanager_get_input_from_file(filename);
 	nl_compile(src);
 	free(src);
 }

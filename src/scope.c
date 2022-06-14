@@ -1,10 +1,10 @@
 #include "include/scope.h"
 #include <stdlib.h>
 
-Scope* scope_init() {
-	Scope* scope = calloc(1, sizeof(Scope));
-	scope->var_space = hashmap_new(
-        sizeof(struct Variable),
+scope* scope_init() {
+	scope* s = calloc(1, sizeof(scope));
+	s->var_space = hashmap_new(
+        sizeof(variable),
         0,
         0,
         0,
@@ -13,17 +13,17 @@ Scope* scope_init() {
         NULL,
         NULL);
 
-	return scope;
+	return s;
 }
 
 bool scope_iter(const void *item, void *udata) {
-    const Variable *var_item = item;
+    const variable *var_item = item;
     variable_print(*var_item);
     return 1;
 }
 
-void scope_scan(Scope* scope) {
-    hashmap_scan(scope->var_space, scope_iter, NULL);
+void scope_scan(scope* s) {
+    hashmap_scan(s->var_space, scope_iter, NULL);
 }
 
     //     // 
@@ -41,14 +41,14 @@ void scope_scan(Scope* scope) {
     // hashmap_free(map);
     // return 0;
 
-void scope_set_variable(Scope* scope, Variable var) {
-	hashmap_set(scope->var_space, &var);
+void scope_set_variable(scope* s, variable var) {
+	hashmap_set(s->var_space, &var);
 }
 
-Variable* scope_get_variable(Scope* scope, Variable var) {
-	return (Variable*) hashmap_get(scope->var_space, &var);
+variable* scope_get_variable(scope* s, variable var) {
+	return (variable*) hashmap_get(s->var_space, &var);
 }
 
-Variable* scope_get_variable_by_id(Scope* scope, const char* identifier) {
-	return (Variable*) hashmap_get(scope->var_space, &(Variable){ .identifier=identifier });
+variable* scope_get_variable_by_id(scope* s, const char* identifier) {
+	return (variable*) hashmap_get(s->var_space, &(variable){ .identifier=identifier });
 }

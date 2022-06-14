@@ -4,7 +4,7 @@
 #define BUFFER_SIZE 256
 #define STDIN_BUFFER_SIZE 1024
 
-char *getInputFromFile(const char *filename);
-char *getInputFromStdin();
+char *iomanager_get_input_from_file(const char *filename);
+char *iomanager_get_input_from_stdin();
 
 #endif //COMPILER_IOMANAGER_H

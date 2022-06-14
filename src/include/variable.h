@@ -5,19 +5,17 @@
 #include "macros.h"
 #include "type.h"
 
-struct Variable {
+typedef struct {
 	const char* identifier;
-	Type type;
+	type type;
 	void* value;
-	int isConstant;
-	int isStatic;
-};
+	int is_constant;
+	int is_static;
+} variable;
 
-typedef struct Variable Variable;
-
-Variable* variable_init();
-Variable* variable_init_with_id(const char* id);
-void variable_print(Variable var);
+variable* variable_init();
+variable* variable_init_with_id(const char* id);
+void variable_print(variable var);
 int variable_compare(const void *a, const void *b, void *udata);
 bool variable_iter(const void *item, void *udata);
 uint64_t variable_hash(const void *item, uint64_t seed0, uint64_t seed1);

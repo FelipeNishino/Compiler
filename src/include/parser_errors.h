@@ -44,10 +44,10 @@ typedef struct {
     };
 } str2num_errno;
 
-void parser_destroy_all(Parser* parser);
-void parser_raise_error(Parser* parser, parse_error e, const char* err_str_arg, ...);
-void parser_assert_type(Parser* parser, Type t1, Type t2);
-void parser_assert_token_type(Parser* parser, TokenType t1, TokenType t2);
-void parser_assert_number_conversion(Parser* parser, str2num_errno res_code);
+void parser_destroy_all(parser* p);
+void parser_raise_error(parser* p, parse_error e, const char* err_str_arg, ...);
+void parser_assert_type(parser* p, type t1, type t2);
+void parser_assert_token_type(parser* p, token_type t1, token_type t2);
+void parser_assert_number_conversion(parser* p, str2num_errno res_code);
 
 #endif //COMPILER_PARSER_ERRORS_H

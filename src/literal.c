@@ -5,12 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-Literal* literal_init(Type type) {
-	return &(Literal) {.value = NULL, .type = type};
+literal* literal_init(type type) {
+	return &(literal) {.value = NULL, .type = type};
 }
 
-Literal* literal_init_with_int(int val) {
-	Literal* l = (Literal*) malloc(sizeof(Literal));
+literal* literal_init_with_int(int val) {
+	literal* l = (literal*) malloc(sizeof(literal));
 	int *i = (int*)malloc(sizeof(int));
 	*i = val;
 	l->value = i;
@@ -18,8 +18,8 @@ Literal* literal_init_with_int(int val) {
 	return l;
 }
 
-Literal* literal_init_with_float(float val) {
-	Literal* l = (Literal*) malloc(sizeof(Literal));
+literal* literal_init_with_float(float val) {
+	literal* l = (literal*) malloc(sizeof(literal));
 	float *f = (float*)malloc(sizeof(float));
 	*f = val;
 	l->value = f;
@@ -27,8 +27,8 @@ Literal* literal_init_with_float(float val) {
 	return l;
 }
 
-Literal* literal_init_with_string(char* val) {
-	Literal* l = (Literal*) malloc(sizeof(Literal));
+literal* literal_init_with_string(char* val) {
+	literal* l = (literal*) malloc(sizeof(literal));
 	int len = strlen(val) - 2;
 	char *str = malloc((len + 1) * sizeof(char));
 	strncpy(str, &val[1], len);
@@ -37,23 +37,23 @@ Literal* literal_init_with_string(char* val) {
 	return l;
 }
 
-Literal* literal_init_with_bool(Boolean val) {
-	Literal* l = (Literal*) malloc(sizeof(Literal));
-	Boolean *b = (Boolean*)malloc(sizeof(Boolean));
+literal* literal_init_with_bool(boolean val) {
+	literal* l = (literal*) malloc(sizeof(literal));
+	boolean *b = (boolean*)malloc(sizeof(boolean));
 	*b = val;
 	l->value = b;
 	l->type = Bool;
 	return l;
 }
 
-Literal* literal_init_from_var(Variable* var) {
-	Literal* l = (Literal*) malloc(sizeof(Literal));
+literal* literal_init_from_var(variable* var) {
+	literal* l = (literal*) malloc(sizeof(literal));
 	l->value = var->value;
 	l->type = var->type;
 	return l;
 }
 
-Literal* literal_cast_to_float(Literal* l) {
+literal* literal_cast_to_float(literal* l) {
 	if (type_compare(l->type, Float)) return l;
 	if (!type_is_number(l->type)) {
 		fprintf(stderr, "Bad cast from %s to Float\n", TYPE_STRING[l->type]);
@@ -67,7 +67,7 @@ Literal* literal_cast_to_float(Literal* l) {
 	return l;
 }
 
-Literal* literal_cast_to_int(Literal* l) {
+literal* literal_cast_to_int(literal* l) {
 	if (type_compare(l->type, Int)) return l;
 	if (!type_is_number(l->type)) {
 		fprintf(stderr, "Bad cast from %s to Int\n", TYPE_STRING[l->type]);
@@ -81,23 +81,23 @@ Literal* literal_cast_to_int(Literal* l) {
 }
 
 
-void _literal_print_int(Literal* l) {
-	fprintf(stderr, "<Value: {%d}, Type: {%s}>\n", *(int*)l->value, TYPE_STRING[l->type]);
+void _literal_print_int(literal* l) {
+	fprintf(stderr, "<Value: {%d}, type: {%s}>\n", *(int*)l->value, TYPE_STRING[l->type]);
 }
 
-void _literal_print_float(Literal* l) {
-	fprintf(stderr, "<Value: {%f}, Type: {%s}>\n", *(float*)l->value, TYPE_STRING[l->type]);
+void _literal_print_float(literal* l) {
+	fprintf(stderr, "<Value: {%f}, type: {%s}>\n", *(float*)l->value, TYPE_STRING[l->type]);
 }
 
-void _literal_print_bool(Literal* l) {
-	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", BOOLEAN_STRING[*(Boolean*)l->value], TYPE_STRING[l->type]);
+void _literal_print_bool(literal* l) {
+	fprintf(stderr, "<Value: {%s}, type: {%s}>\n", BOOLEAN_STRING[*(boolean*)l->value], TYPE_STRING[l->type]);
 }
 
-void _literal_print_string(Literal* l) {
-	fprintf(stderr, "<Value: {%s}, Type: {%s}>\n", (char*)l->value, TYPE_STRING[l->type]);
+void _literal_print_string(literal* l) {
+	fprintf(stderr, "<Value: {%s}, type: {%s}>\n", (char*)l->value, TYPE_STRING[l->type]);
 }
 
-void literal_print(Literal* l) {
+void literal_print(literal* l) {
 	switch(l->type) {
 		case Int: 
 			_literal_print_int(l);

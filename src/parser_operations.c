@@ -7,21 +7,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-Boolean parser_operation_equality(Parser* parser, Literal* lh, Literal *rh, operation op) {
+boolean parser_operation_equality(parser* p, literal* lh, literal *rh, operation op) {
     if (type_compare(lh->type, String) ^ type_compare(rh->type, String))
-        parser_raise_error(parser, type_mismatch, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+        parser_raise_error(p, type_mismatch, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
     if (type_compare(lh->type, String))
         return (strcmp((char*) lh->value, (char*) rh->value) != 0 ? False : True);
     if (type_compare(lh->type, Bool) ^ type_compare(rh->type, Bool))
-        parser_raise_error(parser, type_mismatch, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+        parser_raise_error(p, type_mismatch, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
     if (type_compare(lh->type, Bool))
-        return bool_init_from_int(*(Boolean*)lh->value == *(Boolean*)rh->value);
+        return bool_init_from_int(*(boolean*)lh->value == *(boolean*)rh->value);
     return bool_init_from_int((lh->type == Int ? *(int*)lh->value : *(float*)lh->value) == (rh->type == Int ? *(int*)rh->value : *(float*)rh->value));
 }
 
-Boolean parser_operation_comparation(Parser* parser, Literal* lh, Literal *rh, operation op) { 
-    if (!type_is_number(lh->type)) parser_raise_error(parser, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
-    if (!type_is_number(rh->type)) parser_raise_error(parser, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+boolean parser_operation_comparation(parser* p, literal* lh, literal *rh, operation op) { 
+    if (!type_is_number(lh->type)) parser_raise_error(p, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+    if (!type_is_number(rh->type)) parser_raise_error(p, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
     int res;
     switch (op) {
         case op_lt:
@@ -41,28 +41,28 @@ Boolean parser_operation_comparation(Parser* parser, Literal* lh, Literal *rh, o
     return bool_init_from_int(res);
 }
 
-Literal* parser_operation_or(Literal* lh, Literal *rh) {
-    Number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
-    Number r = (rh->type == Int ? number_init_with_int(*(int*)rh->value) : number_init_with_float(*(float*)rh->value));
+literal* parser_operation_or(literal* lh, literal *rh) {
+    number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
+    number r = (rh->type == Int ? number_init_with_int(*(int*)rh->value) : number_init_with_float(*(float*)rh->value));
 
     lh->value = literal_init_with_bool(number_is(l, I) ? l.i : l.f || number_is(r, I) ? r.i : r.f?True:False)->value;
     return lh;
 }
 
-Literal* parser_operation_and(Literal* lh, Literal *rh) {
-    Number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
-    Number r = (rh->type == Int ? number_init_with_int(*(int*)rh->value) : number_init_with_float(*(float*)rh->value));
+literal* parser_operation_and(literal* lh, literal *rh) {
+    number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
+    number r = (rh->type == Int ? number_init_with_int(*(int*)rh->value) : number_init_with_float(*(float*)rh->value));
 
     lh->value = literal_init_with_bool(number_is(l, I) ? l.i : l.f && number_is(r, I) ? r.i : r.f?True:False)->value;
     return lh;
 }
 
-Literal* parser_operation_not(Literal* lh) {
-    lh->value = (*(Boolean*)lh->value == True ? literal_init_with_bool(False)->value : literal_init_with_bool(True)->value);
+literal* parser_operation_not(literal* lh) {
+    lh->value = (*(boolean*)lh->value == True ? literal_init_with_bool(False)->value : literal_init_with_bool(True)->value);
     return lh;
 }
 
-Literal* parser_operation_additive(Literal* lh, Literal *rh, operation op) {
+literal* parser_operation_additive(literal* lh, literal *rh, operation op) {
     int* i = (int*) malloc(sizeof(int));
     float* f = (float*) malloc(sizeof(float));
 
@@ -86,7 +86,7 @@ Literal* parser_operation_additive(Literal* lh, Literal *rh, operation op) {
     return lh;
 }
 
-Literal* parser_operation_multiply(Literal* lh, Literal *rh) {
+literal* parser_operation_multiply(literal* lh, literal *rh) {
     int* i = (int*) malloc(sizeof(int));
     float* f = (float*) malloc(sizeof(float));
 
@@ -102,7 +102,7 @@ Literal* parser_operation_multiply(Literal* lh, Literal *rh) {
     return lh;
 }
 
-Literal* parser_operation_divide(Literal* lh, Literal *rh, operation op) {
+literal* parser_operation_divide(literal* lh, literal *rh, operation op) {
     int* i = (int*) malloc(sizeof(int));
     float* f = (float*) malloc(sizeof(float));
 
@@ -123,11 +123,11 @@ Literal* parser_operation_divide(Literal* lh, Literal *rh, operation op) {
     return lh;
 }
 
-Literal* parser_operation_power(Literal* lh, Literal *rh) {
+literal* parser_operation_power(literal* lh, literal *rh) {
     // TODO: N valeu a pena usar essa union, repensar dps
-    Number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
-    Number r = number_init_with_int(*(int*)rh->value);
-    Number b = l;
+    number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
+    number r = number_init_with_int(*(int*)rh->value);
+    number b = l;
     
     // if (ACCESS_NUMBER(r) == 0) return ;
     if (r.i == 1) return lh;
@@ -147,7 +147,7 @@ Literal* parser_operation_power(Literal* lh, Literal *rh) {
         }
     }
 
-    Literal *result;
+    literal *result;
 
     if (number_is(l, I))
         result = literal_init_with_int(l.i);
@@ -163,10 +163,10 @@ Literal* parser_operation_power(Literal* lh, Literal *rh) {
     return result;
 }
 
-Literal* parser_operation(Parser* parser, operation op, Literal* lh, Literal *rh) {
+literal* parser_operation(parser* p, operation op, literal* lh, literal *rh) {
     if (op < 6) {
-        if (!type_is_number(lh->type)) parser_raise_error(parser, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
-        if (!type_is_number(rh->type)) parser_raise_error(parser, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+        if (!type_is_number(lh->type)) parser_raise_error(p, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+        if (!type_is_number(rh->type)) parser_raise_error(p, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
     }
 
     switch (op) {
@@ -178,8 +178,8 @@ Literal* parser_operation(Parser* parser, operation op, Literal* lh, Literal *rh
         case op_pow:
             return parser_operation_power(lh, rh);
         case op_mod:
-            if (lh->type != Int) parser_raise_error(parser, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
-            if (rh->type != Int) parser_raise_error(parser, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+            if (lh->type != Int) parser_raise_error(p, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
+            if (rh->type != Int) parser_raise_error(p, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
         case op_div:
             return parser_operation_divide(lh, rh, op);
         case op_and:

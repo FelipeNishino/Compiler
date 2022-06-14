@@ -10,10 +10,9 @@
         TYPE(String)   \
         TYPE(Null)   \
 
-typedef enum Type {
+typedef enum {
     FOREACH_TYPE(GENERATE_ENUM)
-} Type;
-// typedef enum Type Type;
+} type;
 
 //https://stackoverflow.com/questions/8312168/static-const-char-defined-but-not-used
 static const char * const TYPE_STRING[] = {
@@ -26,8 +25,7 @@ static const char * const TYPE_STRING[] = {
 
 typedef enum {
     FOREACH_BOOLEAN(GENERATE_ENUM)
-} Boolean;
-// typedef enum Type Type;
+} boolean;
 
 //https://stackoverflow.com/questions/8312168/static-const-char-defined-but-not-used
 static const char * const BOOLEAN_STRING[] = {
@@ -38,19 +36,19 @@ typedef enum {
     I, F
 } number_discriminant;
 
-typedef struct Number {
+typedef struct {
     number_discriminant discriminant;
     union {
         int i;
         float f;
     };
-} Number;
+} number;
 
-int type_compare(Type t1, Type t2);
-int type_is_number(Type t);
-Boolean bool_init_from_int(int r);
-int number_is(Number n, number_discriminant d);
-Number number_init_with_int(int i);
-Number number_init_with_float(float f);
+int type_compare(type t1, type t2);
+int type_is_number(type t);
+boolean bool_init_from_int(int r);
+int number_is(number n, number_discriminant d);
+number number_init_with_int(int i);
+number number_init_with_float(float f);
 
 #endif //COMPILER_TYPE_H

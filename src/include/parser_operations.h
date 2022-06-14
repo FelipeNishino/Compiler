@@ -31,14 +31,14 @@ static const char * const OP_STRING[] = {
     FOREACH_OP(GENERATE_STRING)
 };
 
-Boolean parser_operation_comparation(Parser* parser, Literal* lh, Literal *rh, operation op);
-Boolean parser_operation_equality(Parser* parser, Literal* lh, Literal *rh, operation op);
-Literal* parser_operation_or(Literal* lh, Literal *rh);
-Literal* parser_operation_and(Literal* lh, Literal *rh);
-Literal* parser_operation_not(Literal* lh);
-Literal* parser_operation_additive(Literal* lh, Literal *rh, operation op);
-Literal* parser_operation_multiply(Literal* lh, Literal *rh);
-Literal* parser_operation_divide(Literal* lh, Literal *rh, operation op);
-Literal* parser_operation(Parser* parser, operation op, Literal* lh, Literal *rh);
+boolean parser_operation_comparation(parser* p, literal* lh, literal *rh, operation op);
+boolean parser_operation_equality(parser* p, literal* lh, literal *rh, operation op);
+literal* parser_operation_or(literal* lh, literal *rh);
+literal* parser_operation_and(literal* lh, literal *rh);
+literal* parser_operation_not(literal* lh);
+literal* parser_operation_additive(literal* lh, literal *rh, operation op);
+literal* parser_operation_multiply(literal* lh, literal *rh);
+literal* parser_operation_divide(literal* lh, literal *rh, operation op);
+literal* parser_operation(parser* p, operation op, literal* lh, literal *rh);
 
 #endif //COMPILER_PARSER_OPERATIONS_H
