@@ -3,6 +3,7 @@
 #include "include/parser_errors.h"
 #include "include/literal.h"
 #include "include/type.h"
+#include "include/macros.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -122,6 +123,46 @@ Literal* parser_operation_divide(Literal* lh, Literal *rh, operation op) {
     return lh;
 }
 
+Literal* parser_operation_power(Literal* lh, Literal *rh) {
+    // TODO: N valeu a pena usar essa union, repensar dps
+    Number l = (lh->type == Int ? number_init_with_int(*(int*)lh->value) : number_init_with_float(*(float*)lh->value));
+    Number r = number_init_with_int(*(int*)rh->value);
+    Number b = l;
+    
+    // if (ACCESS_NUMBER(r) == 0) return ;
+    if (r.i == 1) return lh;
+    
+    for (int i = 1; i < ABS(r.i); i++) {
+        if (number_is(l, I)) {
+            if (number_is(b, I))
+                l.i *= b.i;
+            else
+                l.i *= b.f;
+        }
+        else {
+            if (number_is(b, I))
+                l.f *= b.i;
+            else
+                l.f *= b.f;
+        }
+    }
+
+    Literal *result;
+
+    if (number_is(l, I))
+        result = literal_init_with_int(l.i);
+    else result = literal_init_with_float(l.f);
+
+    if (r.i > 0) return result;
+
+    result->type = Float;
+    float *f = (float*) malloc(sizeof(float));
+    if (number_is(l, I)) *f = 1 / l.i;
+    else if (l.f > 0) *f = 1 / l.f;
+    result->value = f;
+    return result;
+}
+
 Literal* parser_operation(Parser* parser, operation op, Literal* lh, Literal *rh) {
     if (op < 6) {
         if (!type_is_number(lh->type)) parser_raise_error(parser, invalid_operation, NULL, OP_STRING[op], TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
@@ -135,10 +176,7 @@ Literal* parser_operation(Parser* parser, operation op, Literal* lh, Literal *rh
         case op_multi:
             return parser_operation_multiply(lh, rh);
         case op_pow:
-            Literal base = *lh;
-            for (int i = 1; i < *(int*)rh->value; i++)
-                lh = parser_operation_multiply(lh, &base);
-            return lh;
+            return parser_operation_power(lh, rh);
         case op_mod:
             if (lh->type != Int) parser_raise_error(parser, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
             if (rh->type != Int) parser_raise_error(parser, invalid_operation_mod, NULL, TYPE_STRING[lh->type], TYPE_STRING[rh->type]);
