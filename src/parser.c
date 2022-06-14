@@ -368,7 +368,15 @@ Literal* parser_assignment_expression(Parser* parser, Type expected_type) {
 
     Literal* lit = parser_expression(parser);
 
-    parser_assert_type(parser, lit->type, expected_type);
+    if (!type_compare(lit->type, expected_type)) {
+        if (type_is_number(lit->type) && type_is_number(expected_type)) {
+            if (type_compare(lit->type, Int))
+                lit = literal_cast_to_float(lit);
+            else
+                lit = literal_cast_to_float(lit);
+        }
+        else parser_raise_error(parser, type_mismatch, NULL, TYPE_STRING[lit->type], TYPE_STRING[expected_type]);
+    }
 
     return lit;
 }
@@ -553,6 +561,8 @@ Literal* parser_grouped_expression(Parser* parser) {
     lh = parser_expression(parser);
     parser_get_token(parser);
     parser_assert_token_type(parser, parser->current_token->type, token_gp_cp);
+
+
     return lh;
 }
 
