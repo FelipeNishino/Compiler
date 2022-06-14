@@ -1,6 +1,6 @@
 DIR := ${CURDIR}
 
-exec = a.out
+exec = nl-interpret.out
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
 flags = -g -Wall -fPIC -std=c11
@@ -18,8 +18,8 @@ clean:
 	-rm src/*.o
 
 run: $(exec)
-	./a.out input.txt
+	./$(exec) input.txt
 
 lexer: $(exec)
-	./a.out input.txt -l
+	./$(exec) input.txt -l
 
