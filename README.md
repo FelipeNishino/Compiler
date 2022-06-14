@@ -28,7 +28,7 @@ Este repositório contém um arquivo de exemplo chamado `input.txt`.
 
 ### Flags disponíveis
 
-- *-l*: Roda somente o lexer e printa todos os tokens reconhecidos.
+- `-l`: Roda somente o lexer e printa todos os tokens reconhecidos.
 
 ## Gramática
 
