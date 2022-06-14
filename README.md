@@ -5,8 +5,10 @@
 - [&#128994;] Variáveis (Normal, Constantes);
 - [&#10060;] Escopo local;
 - [&#128994;] Tipos (Int, Float, String, Bool);
+- [&#128994;] Operações;
 - [&#128994;] Sequências de controle e laços de repetição (if, else, for, while, do...while);
 - [&#10060;] Funções;
+- [&#128994;] Comentários (inline);
 
 ## Build
 
@@ -29,6 +31,10 @@ Este repositório contém um arquivo de exemplo chamado `input.txt`.
 ### Flags disponíveis
 
 - `-l`: Roda somente o lexer e printa todos os tokens reconhecidos.
+
+## Operações
+
+*a documentar*
 
 ## Gramática
 
