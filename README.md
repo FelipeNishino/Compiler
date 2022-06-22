@@ -97,7 +97,7 @@ Este repositório contém um arquivo de exemplo chamado `input.txt`.
 
 ## Gramática
 
-Como as funções ainda não foram implementadas, o interpretador entra pela regra de produção <block>.
+Como as funções ainda não foram implementadas, o interpretador entra pela regra de produção \<block\>.
 
 ```
 program ::= function
